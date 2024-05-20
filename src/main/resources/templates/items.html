@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Items List</title>
+</head>
+<body>
+<h1>Items List</h1>
+<ul>
+    <li th:each="itemhtml : ${itemsalot}" th:text="${itemhtml}">Item</li>
+</ul>
+</body>
+</html>
