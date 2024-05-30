@@ -1,15 +1,13 @@
-package com.realestate.thymeleaf.RealEstate.Controllers;
-
+package com.realestate.thymeleaf.RealEstate.DataStorage;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class DataStorage {
-    private List<Property> properties = new ArrayList<>();
+public class PropertyDataStorage {
+    private List<PropertyData> properties = new ArrayList<PropertyData>();
 
     // ArrayLists to store IDs and addresses extracted from the ResultSet
     private ArrayList<String> ids = new ArrayList<>();
@@ -40,6 +38,7 @@ public class DataStorage {
                 String type = resultSet.getString("PropertyType");
                 String pPrice = resultSet.getString("PurchasePrice");
                 String rPrice = resultSet.getString("RentalPrice");
+                String perimeter = resultSet.getString("Perimeter");
                 String room = resultSet.getString("Rooms");
                 String bathroom = resultSet.getString("Bathrooms");
                 String squarefootage = resultSet.getString("SquareFootage");
@@ -53,12 +52,13 @@ public class DataStorage {
                 types.add(type);
                 pPrices.add(pPrice);
                 rPrices.add(rPrice);
+                perimeters.add(perimeter);
                 rooms.add(room);
                 bathrooms.add(bathroom);
                 squarefootages.add(squarefootage);
                 listingsstatus.add(listingstatus);
-                Property property = new Property(id, address, city, zip, country);
-                properties.add(property);
+                PropertyData propertyData = new PropertyData(id, address, city, zip, country);
+                properties.add(propertyData);
 
 
                 // need to add the other ones
@@ -67,7 +67,7 @@ public class DataStorage {
             e.printStackTrace();
         }
     }
-    public List<Property> getProperties() {
+    public List<PropertyData> getProperties() {
         return properties;
     }
 

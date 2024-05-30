@@ -1,6 +1,5 @@
-package com.realestate.thymeleaf.RealEstate.Controllers;
-
-public class Property {
+package com.realestate.thymeleaf.RealEstate.DataStorage;
+public class PropertyData {
     private String id;
     private String address;
     private String city;
@@ -9,7 +8,7 @@ public class Property {
     // Add other attributes as needed
 
     // Constructor, getters, and setters
-    public Property(String id, String address, String city, String zipCode, String country) {
+    public PropertyData(String id, String address, String city, String zipCode, String country) {
         this.id = id;
         this.address = address;
         this.city = city;

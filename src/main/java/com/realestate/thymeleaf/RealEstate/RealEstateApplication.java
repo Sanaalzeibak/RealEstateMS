@@ -1,6 +1,6 @@
 package com.realestate.thymeleaf.RealEstate;
 
-import com.realestate.thymeleaf.RealEstate.Controllers.DataStorage;
+import com.realestate.thymeleaf.RealEstate.DataStorage.PropertyDataStorage;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -10,12 +10,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 @SpringBootApplication
 public class RealEstateApplication {
 	@Autowired
-	private DataStorage dataStorage;
+	private PropertyDataStorage propertyDataStorage;
 	public static void main(String[] args) {
 		SpringApplication.run(RealEstateApplication.class, args);
 	}
@@ -36,7 +35,7 @@ public class RealEstateApplication {
 			//DataStorage dataStorage = new DataStorage();
 
 			// Extract data from the ResultSet and store it in the DataStorage object
-			dataStorage.extractData(resultSet);
+			propertyDataStorage.extractData(resultSet);
 
 
 

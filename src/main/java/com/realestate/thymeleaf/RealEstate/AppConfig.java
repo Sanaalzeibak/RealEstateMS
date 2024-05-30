@@ -1,6 +1,6 @@
 package com.realestate.thymeleaf.RealEstate;
 
-import com.realestate.thymeleaf.RealEstate.Controllers.DataStorage;
+import com.realestate.thymeleaf.RealEstate.DataStorage.PropertyDataStorage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
     @Bean
-    public DataStorage dataStorage() {
-        return new DataStorage();
+    public PropertyDataStorage propertyDataStorage() {
+        return new PropertyDataStorage();
     }
 }
