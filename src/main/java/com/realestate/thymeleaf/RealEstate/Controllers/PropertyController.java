@@ -27,6 +27,6 @@ public class PropertyController {
         Gson gson = new Gson();
         String jsonProperties = gson.toJson(properties);
         model.addAttribute("jsonProperties", jsonProperties);
-        return "properties"; // returns the name of the view template (items.html)
+        return "properties"; // returns the name of the view template (properties.html)
     }
 }

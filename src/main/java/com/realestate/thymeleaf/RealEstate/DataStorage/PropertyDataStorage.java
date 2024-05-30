@@ -57,7 +57,7 @@ public class PropertyDataStorage {
                 bathrooms.add(bathroom);
                 squarefootages.add(squarefootage);
                 listingsstatus.add(listingstatus);
-                PropertyData propertyData = new PropertyData(id, address, city, zip, country);
+                PropertyData propertyData = new PropertyData(id, address, city, zip, country, type, pPrice, rPrice, perimeter, room, bathroom, squarefootage, listingstatus);
                 properties.add(propertyData);
 
 
