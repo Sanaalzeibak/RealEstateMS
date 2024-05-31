@@ -61,12 +61,13 @@ public class PropertyDataStorage {
                 properties.add(propertyData);
 
 
-                // need to add the other ones
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    // getter properties
     public List<PropertyData> getProperties() {
         return properties;
     }

@@ -1,5 +1,7 @@
 package com.realestate.thymeleaf.RealEstate.DataStorage;
 public class PropertyData {
+
+    // attributes of table properties
     private String id;
     private String address;
     private String city;
@@ -15,11 +17,7 @@ public class PropertyData {
     private String listingstatus;
 
 
-    // Add other attributes as needed
-
-    // Constructor, getters, and setters
-
-
+    // Constructor
     public PropertyData(String id, String address, String city, String zip, String country, String type, String pPrice, String rPrice, String perimeter, String room, String bathroom, String squarefootage, String listingstatus) {
         this.id = id;
         this.address = address;
@@ -36,6 +34,7 @@ public class PropertyData {
         this.listingstatus = listingstatus;
     }
 
+    // getter and setter methods
     public String getId() {
         return id;
     }

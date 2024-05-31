@@ -1,6 +1,7 @@
 package com.realestate.thymeleaf.RealEstate;
 
 import com.realestate.thymeleaf.RealEstate.DataStorage.PropertyDataStorage;
+import com.realestate.thymeleaf.RealEstate.DataStorage.UserDataStorage;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -15,6 +16,9 @@ import java.sql.Statement;
 public class RealEstateApplication {
 	@Autowired
 	private PropertyDataStorage propertyDataStorage;
+
+	@Autowired
+	private UserDataStorage userDataStorage;
 	public static void main(String[] args) {
 		SpringApplication.run(RealEstateApplication.class, args);
 	}
@@ -28,14 +32,20 @@ public class RealEstateApplication {
 			// Create a statement object for executing SQL queries
 			Statement statement = connection.createStatement();
 
-			// Execute a SQL query to select all data from the "apartment" table
+			// Execute a SQL query to select all data from the "properties" table
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM properties");
+
+			// Execute a SQL query to select all data from the "users" table
+			ResultSet resultSet2 = statement.executeQuery("SELECT * FROM users");
 
 			// Create a DataStorage object to store the extracted data
 			//DataStorage dataStorage = new DataStorage();
 
 			// Extract data from the ResultSet and store it in the DataStorage object
 			propertyDataStorage.extractData(resultSet);
+
+			// Extract data from the ResultSet and store it in the DataStorage object
+			userDataStorage.extractData(resultSet2);
 
 
 
