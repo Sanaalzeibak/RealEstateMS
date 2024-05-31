@@ -100,7 +100,6 @@ public class PropertyData {
         this.type = rPrice;
     }
 
-    // Getter and Setter for perimeter
     public String getPerimeter() {
         return perimeter;
     }
