@@ -5,8 +5,12 @@
 .nav-link:focus, .card-body{
     color: #333333;
 }
+p {
+    margin-bottom: 0.5rem;
+}
 .no-underline {
-    text-decoration: none; /* Removes underline from links with this class */
+    text-decoration: none;
+    color: unset;
 }
 
 .navbar{
@@ -20,7 +24,9 @@
     background: none;
     color: #333333;
 }
-
+.reset-btn{
+    margin-right: 0.5rem;
+}
 .btn:hover{
     background-color: #333333;
     border: #333333;
@@ -83,9 +89,7 @@
 .card-title{
     cursor: pointer;
 }
-.card-descr{
-    padding-bottom:30%;
-}
+
 .card-text{
     font-size: 1.2rem;
 }
@@ -96,31 +100,41 @@
     width: 95%;
     margin: 0 1rem 1rem 1rem;
 }
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
 .vertical-card {
     display: none;
 }
-
+.horizontal-card{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 @media (min-width: 1200px) {
     .vertical-card {
         display: block;
     }
 
 }
-.filtering-box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-}
+
 
 .select2-container .select2-selection--single{
     height: 35px;
     display: flex;
     align-items: center;
+    margin-right: 0.5rem;
+    justify-content: space-between;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
-    top: 4px;
+    position: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -174,13 +188,7 @@
     font-size: small;
 }
 
-.menu-btn, .menu-btn-filter {
-    display: none;
-    padding-left: 25px;
-    font-size: 30px;
-    cursor: pointer;
-    z-index: 10;
-}
+
 
 .overlay {
     position: fixed;
@@ -218,6 +226,7 @@ body.no-scroll {
 .filters-header{
     display:flex;
     justify-content: space-between;
+    align-items: center;
 }
 .filtering-box.open-filters{
     height: 270px;
@@ -227,73 +236,109 @@ body.no-scroll {
     right: 0;
     opacity: 1;
 }
+.menu-btn {
+    display: block;
+    position: fixed;
+    right: 1rem;
+    z-index: 9;
+}
+.menu-btn img {
+    max-width: 30px;
+}
+.menu-btn-filter{
+    justify-content: center;
+    display: flex;
+    z-index: 7;
+}
+.side-menu {
+    padding: 4rem 0.5rem 0 1rem;
+    width: max-content;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    background: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    opacity: 0;
+    z-index: 8;
+}
+.side-menu ul li{
+    justify-content: end;
+    display: flex;
+}
 
-@media (max-width: 767px) {
-    .menu-btn {
-        display: block;
-        position: fixed;
-        right: 1rem;
-    }
-    .menu-btn img {
-        max-width: 30px;
-    }
-    .menu-btn-filter{
-        display:inline;
-        z-index: 7;
-    }
-    .side-menu {
-        padding: 4rem 0.5rem 0 1rem;
-        width: max-content;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100%;
-        background: #fff;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-        transition: right 0.6s ease-in-out, opacity 0.6s ease-in-out;
-        opacity: 0;
-        z-index: 8;
-    }
-    .side-menu ul li{
-        justify-content: end;
-        display: flex;
-    }
-    .nav-link{
-        background-color: unset;
-        color: #333;
-    }
-    .nav-link:hover, .nav-link:focus{
-        text-decoration: underline;
-        transition: text-decoration 0.8s ease-in-out;
-        background-color: unset;
-        color: #333;
-    }
+.nav-link{
+    background-color: unset;
+    color: #333;
+}
+.nav-link:hover, .nav-link:focus{
+    text-decoration: underline;
+    transition: text-decoration 0.8s ease-in-out;
+    background-color: unset;
+    color: #333;
+}
+.filtering-box {
+    opacity: 0;
+    height: 0;
+    transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
 
-    .filtering-box {
-        opacity: 0;
-        height: 0;
-        transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-        padding-left: 2rem;
+h6{
+    font-size:15px;
+}
+
+
+.select2-container .select2-selection--single .select2-selection__rendered{
+    padding-right: 10px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b{
+    left: unset;
+    margin-left: 0;
+    position: unset;
         display: flex;
-        flex-direction: column;
         justify-content: start;
         align-items: start;
     }
-    .filtering-box span{
-        margin-bottom: 0.2rem;
+}
+
+.title_filters{
+    margin-bottom: 0.5rem;
+}
+
+.cards-container{
+    display: flex;
+}
+
+.contact-apartment label{
+    display: flex;
+}
+@media (min-width: 992px) {
+    .menu-btn, .menu-btn-filter {
+        display: none;
+        padding-left: 25px;
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 10;
     }
-    .filtering-box button{
-        margin-bottom: 0.6rem;
-    }
-    .card-descr{
-        padding-bottom: 10%;
-    }
-    h6{
-        font-size:15px;
+    .filtering-box {
+        opacity: 1;
+        padding: 0 2rem 1rem 2rem;
+        flex-direction: row;
+        align-items: center;
+        padding-bottom: 2rem;
     }
     .title_filters{
         font-size: 20px;
+        margin-bottom: 2.5rem;
     }
+
 }
 @media (min-width: 344px) {
     .log-in{
@@ -321,7 +366,6 @@ body.no-scroll {
         display: none;
     }
     .filtering-box {
-        padding: 0 2rem 1rem 2rem;
         justify-content: space-between;
     }
     .navbar-nav{
@@ -329,9 +373,23 @@ body.no-scroll {
         flex-direction: row;
         align-items: center;
     }
+    .side-menu {
+         padding: 0;
+         width: unset;
+         position: unset;
+         background: unset;
+         box-shadow: none;
+         transition: none;
+         opacity: 1;
+    }
 }
 
 @media (min-width: 992px) {
     font-size: medium;
+}
+@media (min-width: 1200px) {
+    .contact-btn{
+        display:none;
+    }
 }
 

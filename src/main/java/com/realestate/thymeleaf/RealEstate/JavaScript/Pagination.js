@@ -1,9 +1,23 @@
-const cardsPerPage = 5;
+const cardsPerPage = 5; // Number of cards to show per page
 const dataContainer = document.getElementById('data-container');
 const pagination = document.getElementById('pagination');
 let currentPage = 1;
 
 $(document).ready(function() {
+
+    function displayPage(page) {
+        const startIndex = (page - 1) * cardsPerPage;
+        const endIndex = startIndex + cardsPerPage;
+
+        cards.forEach((card, index) => {
+            if (index >= startIndex && index < endIndex) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+    }
     // Pagination
     function updatePagination(currentPage = 1) {
         const pagination = document.getElementById('pagination');
@@ -51,3 +65,6 @@ $(document).ready(function() {
     });
 
 });
+
+
+
