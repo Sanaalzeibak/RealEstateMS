@@ -1,0 +1,337 @@
+/* CSS Code goes here */
+
+.navbar .navbar-brand, .nav-link,
+.title_filters, .nav-link:hover,
+.nav-link:focus, .card-body{
+    color: #333333;
+}
+.no-underline {
+    text-decoration: none; /* Removes underline from links with this class */
+}
+
+.navbar{
+    padding-bottom: 20%;
+}
+.navbar-items-list{
+        justify-content: end;
+}
+
+.btn{
+    background: none;
+    color: #333333;
+}
+
+.btn:hover{
+    background-color: #333333;
+    border: #333333;
+    color: #fff;
+}
+
+.log-in{
+    background: none;
+    color: #333333;
+}
+
+.get-started{
+    padding-bottom: 19%;
+    width: fit-content;
+}
+
+.dashboard{
+    height: 100vh;
+    width: 100vw;
+    background-image: url('pic/background_dashboard.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Establish positioning context */
+}
+.dashboard-SP{
+    height: 80vh;
+    background-image: url('pic/background_dashboard.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Establish positioning context */
+}
+
+.custom-input {
+    border: none; /* Remove all borders */
+    border-bottom: 1px solid #ccc; /* Add only a bottom border */
+    border-radius: 0;
+    outline: none; /* Remove default focus outline */
+}
+
+/* Optional: Change color of the bottom border on focus */
+.custom-input:focus {
+    border-bottom-color: #007bff; /* Change color to blue (Bootstrap primary color) on focus */
+}
+
+
+.modal-footer {
+    border: none;
+}
+.create-account{
+    font-size:12px;
+    border-top: 1px solid #ccc;
+}
+
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.card-title{
+    cursor: pointer;
+}
+.card-descr{
+    padding-bottom:30%;
+}
+.card-text{
+    font-size: 1.2rem;
+}
+.card-text-subtitle{
+    font-size: 0.9rem;
+}
+.card {
+    width: 95%;
+    margin: 0 1rem 1rem 1rem;
+}
+.vertical-card {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    .vertical-card {
+        display: block;
+    }
+
+}
+.filtering-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.select2-container .select2-selection--single{
+    height: 35px;
+    display: flex;
+    align-items: center;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 4px;
+}
+
+
+.contact-box{
+    border: solid 1px #52525290;
+    border-radius: 5px;
+}
+
+.contact-message{
+    padding-bottom:6rem;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.page-item.page-link {
+    color: #007bff;
+}
+
+.page-item.active.page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.pagination {
+    justify-content: center;
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.form-control{
+    font-size: 0.9rem
+}
+
+.page-item.page-link {
+    color: #007bff;
+}
+
+.page-item.active.page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+
+.footer{
+    background-color: #333333;
+    color: #fff;
+    font-size: small;
+}
+
+.menu-btn, .menu-btn-filter {
+    display: none;
+    padding-left: 25px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    z-index: 5;
+}
+
+.side-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+.menu-btn.open {
+    position: fixed;
+    right: 1rem;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.filters-header{
+    display:flex;
+    justify-content: space-between;
+}
+.filtering-box.open-filters{
+    height: 270px;
+    opacity: 1;
+}
+.side-menu.open {
+    right: 0;
+    opacity: 1;
+}
+
+@media (max-width: 767px) {
+    .menu-btn {
+        display: block;
+        position: fixed;
+        right: 1rem;
+    }
+    .menu-btn img {
+        max-width: 30px;
+    }
+    .menu-btn-filter{
+        display:inline;
+        z-index: 7;
+    }
+    .side-menu {
+        padding: 4rem 0.5rem 0 1rem;
+        width: max-content;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100%;
+        background: #fff;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        transition: right 0.6s ease-in-out, opacity 0.6s ease-in-out;
+        opacity: 0;
+        z-index: 8;
+    }
+    .side-menu ul li{
+        justify-content: end;
+        display: flex;
+    }
+    .nav-link{
+        background-color: unset;
+        color: #333;
+    }
+    .nav-link:hover, .nav-link:focus{
+        text-decoration: underline;
+        transition: text-decoration 0.8s ease-in-out;
+        background-color: unset;
+        color: #333;
+    }
+
+    .filtering-box {
+        opacity: 0;
+        height: 0;
+        transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        padding-left: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+    .filtering-box span{
+        margin-bottom: 0.2rem;
+    }
+    .filtering-box button{
+        margin-bottom: 0.6rem;
+    }
+    .card-descr{
+        padding-bottom: 10%;
+    }
+    h6{
+        font-size:15px;
+    }
+    .title_filters{
+        font-size: 20px;
+    }
+}
+@media (min-width: 344px) {
+    .log-in{
+        margin: 0;
+    }
+}
+@media (min-width: 576px) {
+    .container, .container-sm {
+        max-width: unset;
+    }
+}
+
+@media (min-width: 768px) {
+    .log-in{
+        margin: 0 0 0 0.5rem;
+    }
+    .hamburger {
+        display: none;
+    }
+    .navbar-items-list{
+        display: absolute;
+        position: fix;
+    }
+    .menu-btn {
+        display: none;
+    }
+    .filtering-box {
+        padding: 0 2rem 1rem 2rem;
+        justify-content: space-between;
+    }
+    .navbar-nav{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media (min-width: 992px) {
+    font-size: medium;
+}
+
