@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <!-- Stylesheet CSS links -->
     <link href="../style.css" rel="stylesheet">
+    <link href="../styleSeller.css" rel="stylesheet">
 </head>
 <body>
 <div class="bg dashboard-SP container-fluid">
@@ -32,8 +33,10 @@
                     <li class="nav-item px-1">
                         <a class="nav-link" href="#footer">Contact</a>
                     </li>
-                    <li class="nav-item px-1">
-                        <a>Logged In</a>
+                    <li class="nav-item px-1 " >
+                        <button class=" log-in  btn btn-outline-secondary" >
+                            <a class="no-underline" href="Index.html">Log Out</a>
+                        </button>
                     </li>
                     <!-- Add more navbar items as needed -->
                 </ul>
@@ -45,9 +48,12 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Filters Container-->
 <div class="main-container container-fluid p-0" id="get-started">
-    <div class="container filters-header m-0 " >
-        <h4 class="title_filters col-md-12 col-10 px-3 pt-3 ">Search for available properties</h4>
-        <div class="menu-btn-filter col-2" id="menuBtnFilter">
+    <div class="container filters-header">
+        <h4 class="title_filters col-lg-11 col-10 px-3 pt-3 ">Search for available properties</h4>
+        <div class="add_btn col-1" id="addApartment">
+            <img src="../pic/add_apartment.png">
+        </div>
+        <div class="menu-btn-filter col-1" id="menuBtnFilter">
             <img src="../pic/filter.png">
         </div>
     </div>
@@ -56,30 +62,29 @@
     <div class="pb-3">
         <div class="filtering-box shadow-sm mb-4" id="filtering-box">
             <select class="form-select select2" id="location" style="width: 200px;">
-                <option disabled selected style="text-align: center;" value="">Select a Location</option>
+                <option disabled selected value="">Select a Location</option>
             </select>
 
             <select class="form-select select2" id="propertyType" style="width: 200px;">
-                <option disabled selected style="text-align: center;" value="">Select a Property Type</option>
+                <option disabled selected  value="">Select a Property Type</option>
             </select>
 
             <select class="form-select select2" id="tenureType" style="width: 200px;">
-                <option disabled selected style="text-align: center;" value="">Tenure Type</option>
+                <option disabled selected  value="">Tenure Type</option>
             </select>
 
             <select class="form-select select2" id="rooms" style="width: 200px;">
-                <option disabled selected style="text-align: center;" value="">Select Rooms</option>
+                <option disabled selected value="">Select Rooms</option>
             </select>
 
             <select class="form-select select2" id="budget" style="width: 200px;">
-                <option disabled selected style="text-align: center;" value="">Budget</option>
+                <option disabled selected  value="">Budget</option>
             </select>
-
             <!-- Button -->
-            <button class="button-search btn btn-outline-secondary col-md-1 col-7" id="resetButton" name="Reset"
+            <button class="reset-btn button-search btn btn-outline-secondary col-lg-1 col-3" id="resetButton" name="Reset"
                     type="button">Reset
             </button>
-            <button class="button-search btn btn-outline-secondary col-md-1 col-7" id="searchButton" name="Search"
+            <button class="button-search btn btn-outline-secondary col-lg-1 col-3" id="searchButton" name="Search"
                     type="button">Search
             </button>
         </div>
@@ -87,6 +92,59 @@
         <div class="container-fluid d-flex">
             <!-- Horizontal Cards -->
             <div class="horizontal-card container-fluid" id="data-container">
+                <!-- Contact  -->
+                <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="contact"
+                     tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered contact-apartment">
+                        <div class="modal-content text-center d-flex align-items-center justify-content-center">
+                            <div class="mb-3 modal-header container d-flex justify-content-between ">
+                                <h5 class="modal-title contact-title col-11" id="log-in">Anbieter kontaktieren</h5>
+                                <!-- Close button -->
+                                <button type="button" class="btn-close col-1" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <form class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="p-2" for="Vorname">Vorname*</label>
+                                            <input class="form-control" id="VornameC" placeholder="Vorname" type="text">
+                                        </div>
+                                    </form>
+                                    <form class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="p-2" for="Nachname">Nachname*</label>
+                                            <input class="form-control" id="NachnameC" placeholder="Nachname"
+                                                   type="text">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="row">
+                                    <form class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="p-2" for="Email">Email Address*</label>
+                                            <input class="form-control" id="EmailC" placeholder="email@example.com"
+                                                   type="text">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="row pb-4">
+                                    <form class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="p-2" for="Nachricht">Ihre Nachricht </label>
+                                            <input class="form-control contact-message" id="NachrichtC"
+                                                   placeholder="Nachricht"
+                                                   type="text">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer container d-flex justify-content-center p-0">
+                                <button class="log-in btn btn-outline-secondary px-5 mb-3" type="button">Contact us</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Horizontal Card 1 -->
                 <div class="card mb-3" id="hcard1">
                     <div class="row g-0">
                         <div class="col-md-6">
@@ -94,22 +152,33 @@
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">
-                                <h5 class="card-title pb-2">Southend</h5>
-                                <div class="location-container d-flex align-items-center pb-2">
-                                    <img alt="..." class="img-fluid rounded-start" src="../pic/location_icon.png">
-                                    <h6 class="card-subtitle text-body-secondary ">Frankfurt am Main (Apartment,
-                                        Rent)</h6>
+                                <div class="px-2">
+                                    <h5 class="card-title pb-2">Southend</h5>
+                                    <div class="location-container d-flex align-items-center pb-2">
+                                        <img alt="..." class="img-fluid rounded-start" src="../pic/location_icon.png">
+                                        <h6 class="card-subtitle text-body-secondary ">Frankfurt am Main (Apartment,
+                                            Rent)</h6>
+                                    </div>
+                                    <p class="card-descr ">Nice view, friendly neighborhood</p>
+                                    <h6>Beschreibung</h6>
+                                    <p class="card-info">Frei ab 01.06.2024</p>
+                                    <p class="card-info">Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
                                 </div>
-                                <h6 class="card-descr px-2">Nice view, friendly neighborhood</h6>
                                 <div class="row-card-properties d-flex justify-content-between">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <p class="card-text">$2800</p>
                                     </div>
-                                    <div class="col-md-4 ">
+                                    <div class="col-md-3 ">
                                         <p class="card-text">80m²</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <p class="card-text">2 Rooms</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="contact-btn btn btn-outline-secondary" data-bs-target="#contact"
+                                                data-bs-toggle="modal"
+                                                type="button">Contact
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -124,21 +193,33 @@
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">
-                                <h5 class="card-title pb-2">Westend</h5>
-                                <div class="location-container d-flex align-items-center pb-2">
-                                    <img alt="..." class="img-fluid rounded-start" src="../pic/location_icon.png">
-                                    <h6 class="card-subtitle text-body-secondary ">Berlin (Share Apartment, Rent)</h6>
+                                <div class="px-2">
+                                    <h5 class="card-title pb-2">Southend</h5>
+                                    <div class="location-container d-flex align-items-center pb-2">
+                                        <img alt="..." class="img-fluid rounded-start" src="../pic/location_icon.png">
+                                        <h6 class="card-subtitle text-body-secondary ">Frankfurt am Main (Apartment,
+                                            Rent)</h6>
+                                    </div>
+                                    <p class="card-descr ">Nice view, friendly neighborhood</p>
+                                    <h6>Beschreibung</h6>
+                                    <p class="card-info">Frei ab 01.06.2024</p>
+                                    <p class="card-info">Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
                                 </div>
-                                <h6 class="card-descr px-2">Nice view, friendly neighborhood</h6>
                                 <div class="row-card-properties d-flex justify-content-between">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <p class="card-text">$2800</p>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3 ">
                                         <p class="card-text">80m²</p>
                                     </div>
-                                    <div class="col-md-4">
-                                        <p class="card-text">3 Rooms</p>
+                                    <div class="col-md-3">
+                                        <p class="card-text">2 Rooms</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="contact-btn btn btn-outline-secondary" data-bs-target="#contact"
+                                                data-bs-toggle="modal"
+                                                type="button">Contact
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -266,79 +347,44 @@
             <div class="vertical-card scrollable-container container-fluid col-md-4 p-0 g-0">
                 <div class="card-hidden card m-0" id="vcard1">
                     <div class="row g-0">
-                        <img alt="Card image" class="card-img-top" src="../pic/apartment2.jpg">
-                        <div class="card-body">
-                            <h5 class="card-title">Westend</h5>
-                            <div class="location-container d-flex align-items-center pb-5">
-                                <img alt="..." class="img-fluid rounded-start" src="../pic/location_icon.png">
-                                <h6 class="card-subtitle text-body-secondary ">Aschaffenburg (House, Buy)</h6>
+                        <div class="contact-box  container p-2">
+                            <h5 class="contact-title row justify-content-center py-3">Anbieter kontaktieren</h5>
+                            <div class="row">
+                                <form class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="p-2" for="Vorname">Vorname*</label>
+                                        <input class="form-control" id="Vorname" placeholder="Vorname" type="text">
+                                    </div>
+                                </form>
+                                <form class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="p-2" for="Nachname">Nachname*</label>
+                                        <input class="form-control" id="Nachname" placeholder="Nachname"
+                                               type="text">
+                                    </div>
+                                </form>
                             </div>
-                            <div class="row-card-properties d-flex">
-                                <div class="col-md-4 col-sm-9">
-                                    <p class="card-text">2800  €/Monat</p>
-                                </div>
-                                <div class="col-md-4 col-sm-9">
-                                    <p class="card-text">80m²</p>
-                                </div>
-                                <div class="col-md-4 col-sm-9">
-                                    <p class="card-text">3 Rooms</p>
-                                </div>
+                            <div class="row">
+                                <form class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="p-2" for="Email">Email Address*</label>
+                                        <input class="form-control" id="Email" placeholder="email@example.com"
+                                               type="text">
+                                    </div>
+                                </form>
                             </div>
-                            <div class="row-card-properties d-flex pb-4">
-                                <div class="col-md-4 col-sm-9">
-                                    <p class="card-text card-text-subtitle">Warmmiete</p>
-                                </div>
-                                <div class="col-md-4 col-sm-9">
-                                    <p class="card-text card-text-subtitle">Wohnfläche ca.</p>
-                                </div>
-                                <div class="col-md-4 col-sm-9">
-                                    <p class="card-text card-text-subtitle">Zimmer</p>
-                                </div>
+                            <div class="row pb-4">
+                                <form class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="p-2" for="Nachricht">Ihre Nachricht </label>
+                                        <input class="form-control contact-message" id="Nachricht"
+                                               placeholder="Nachricht"
+                                               type="text">
+                                    </div>
+                                </form>
                             </div>
-                            <h5>Beschreibung</h5>
-                            <p class="card-info">Frei ab 01.06.2024</p>
-                            <p class="card-info pb-4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                                nonumy eirmod tempor invidunt ut labore et dolore magna</p>
-
-                            <div class="contact-box  container p-2">
-                                <h5 class="contact-title row justify-content-center py-3">Anbieter kontaktieren</h5>
-                                <div class="row">
-                                    <form class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="p-2" for="Vorname">Vorname*</label>
-                                            <input class="form-control" id="Vorname" placeholder="Vorname" type="text">
-                                        </div>
-                                    </form>
-                                    <form class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="p-2" for="Nachname">Nachname*</label>
-                                            <input class="form-control" id="Nachname" placeholder="Nachname"
-                                                   type="text">
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="row">
-                                    <form class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="p-2" for="Email">Email Address*</label>
-                                            <input class="form-control" id="Email" placeholder="email@example.com"
-                                                   type="text">
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="row pb-4">
-                                    <form class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="p-2" for="Nachricht">Ihre Nachricht </label>
-                                            <input class="form-control contact-message" id="Nachricht"
-                                                   placeholder="Nachricht"
-                                                   type="text">
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="row justify-content-center ">
-                                    <button class="btn btn-outline-secondary col-md-4 " type="button">Absenden</button>
-                                </div>
+                            <div class="row justify-content-center ">
+                                <button class="btn btn-outline-secondary col-md-4 " type="button">Absenden</button>
                             </div>
                         </div>
                     </div>
@@ -346,6 +392,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 <nav aria-label="Page navigation example container d-flex" id="pagination">
     <ul class="pagination container d-flex">
@@ -402,11 +449,11 @@
 <!-- Bootstrap JavaScript (required for toggling the collapsed navbar) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="../JavaScript/Pagination.js"></script>
 <script src="../JavaScript/DropdownFunctions.js"></script>
 <script src="../JavaScript/ButtonFunctions.js"></script>
 <script src="../JavaScript/PhotoGeneratorFunction.js"></script>
 <script src="../JavaScript/HamburgerMenu.js"></script>
-<script src="../JavaScript/Pagination.js"></script>
 <script src="../JavaScript/RadioButtonFunction.js"></script>
 <!-- Links to Bootstrap assets -->
 <script crossorigin="anonymous"
