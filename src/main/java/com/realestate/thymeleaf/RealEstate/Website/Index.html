@@ -20,7 +20,7 @@
         <div class="container-fluid d-flex justify-content-between">
             <a class="navbar-brand m-0" href="#">Real Estate Management</a>
             <div class="menu-btn" id="menuBtn">
-                <img src="../pic/hamburger_menu.png">
+                <img src="../pic/hamburger_menu.png" alt="hamburger menu">
             </div>
             <div id="overlay"></div>
             <!-- Navbar Items (Collapsible) -->
@@ -33,10 +33,9 @@
                         <a class="nav-link" href="#footer">Contact</a>
                     </li>
                     <li class="nav-item px-1">
-                        <button id="loginButton" class="log-in btn btn-outline-secondary" data-bs-target="#exampleModal"
+                        <button class="log-in btn btn-outline-secondary" data-bs-target="#exampleModal"
                                 data-bs-toggle="modal"
-                                type="button"
-                                id="logIn">Log In
+                                type="button">Log In
                         </button>
                     </li>
                     <!-- Add more navbar items as needed -->
@@ -59,13 +58,17 @@
                                     <span>
                                         <img class="" alt="Icon" src="../pic/username.png">
                                     </span>
-                                    <input class="form-control custom-input " placeholder="E-Mail-Address" type="text">
+                                    <label>
+                                        <input class="form-control custom-input " placeholder="E-Mail-Address" type="text">
+                                    </label>
                                 </div>
                                 <div class="mb-3 container d-flex col-12">
                                     <span>
                                         <img class="" alt="Icon" src="../pic/password.png">
                                     </span>
-                                    <input class="form-control custom-input" placeholder="Password" type="password">
+                                    <label>
+                                        <input class="form-control custom-input" placeholder="Password" type="password">
+                                    </label>
                                 </div>
                             </form>
                         </div>
