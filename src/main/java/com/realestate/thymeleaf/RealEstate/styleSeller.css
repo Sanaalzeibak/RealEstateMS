@@ -4,4 +4,11 @@
     z-index: 7;
 }
 
+.add-apartment-btn{
+    border: none;
+    background-color: unset;
+}
 
+.add-apartment{
+    --bs-modal-width: 600px;
+}

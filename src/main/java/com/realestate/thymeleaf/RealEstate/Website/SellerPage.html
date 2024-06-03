@@ -50,11 +50,106 @@
 <div class="main-container container-fluid p-0" id="get-started">
     <div class="container filters-header">
         <h4 class="title_filters col-lg-11 col-10 px-3 pt-3 ">Search for available properties</h4>
-        <div class="add_btn col-1" id="addApartment">
-            <img src="../pic/add_apartment.png">
+        <div class="add_btn col-1"  data-bs-target="#addApartment">
+            <button class="add-apartment-btn" data-bs-target="#addApartment"
+                    data-bs-toggle="modal"
+                    type="button">
+                <img src="../pic/add_apartment.png">
+            </button>
         </div>
         <div class="menu-btn-filter col-1" id="menuBtnFilter">
             <img src="../pic/filter.png">
+        </div>
+
+        <div aria-hidden="true" aria-labelledby="addApartment" class="add-apartment modal fade" id="addApartment"
+             tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered contact-apartment">
+                <div class="modal-content text-center d-flex align-items-center justify-content-center">
+                    <div class="mb-3 modal-header container d-flex justify-content-between ">
+                        <h5 class="modal-title contact-title col-11">Add new apartment</h5>
+                        <!-- Close button -->
+                        <button type="button" class="btn-close col-1" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <form class="col-md-6">
+                                <div class="form-group">
+                                    <label class="p-2" for="Vorname">Vorname*</label>
+                                    <input class="form-control" id="VornameA" placeholder="Vorname" type="text">
+                                </div>
+                            </form>
+                            <form class="col-md-6">
+                                <div class="form-group">
+                                    <label class="p-2" for="Nachname">Nachname*</label>
+                                    <input class="form-control" id="NachnameA" placeholder="Nachname"
+                                           type="text">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row">
+                            <form class="col-md-12">
+                                <div class="form-group">
+                                    <label class="p-2" >Email*</label>
+                                    <input class="form-control" id="EmailA" placeholder="example@gmail.com"
+                                           type="text">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row">
+                            <form class="col-md-12">
+                                <div class="form-group">
+                                    <label class="p-2" >Phone number*</label>
+                                    <input class="form-control" id="phoneNum" placeholder="+49 1234 567891"
+                                           type="text">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row">
+                            <form class="col-md-6">
+                                <div class="form-group">
+                                    <label class="p-2" for="Street">Street name*</label>
+                                    <input class="form-control" id="Street" placeholder="" type="text">
+                                </div>
+                            </form>
+                            <form class="col-md-6">
+                                <div class="form-group">
+                                    <label class="p-2" >Apartment number*</label>
+                                    <input class="form-control" id="ApartNum" placeholder=""
+                                           type="text">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row">
+                            <form class="col-md-6">
+                                <div class="form-group">
+                                    <label class="p-2">Postal code*</label>
+                                    <input class="form-control" id="Code" placeholder="" type="text">
+                                </div>
+                            </form>
+                            <form class="col-md-6">
+                                <div class="form-group">
+                                    <label class="p-2">City*</label>
+                                    <input class="form-control" id="City" placeholder=""
+                                           type="text">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row pb-4">
+                            <form class="col-md-12">
+                                <div class="form-group">
+                                    <label class="p-2" for="Nachricht">Ihre Nachricht </label>
+                                    <input class="form-control contact-message" id=""
+                                           placeholder="Nachricht"
+                                           type="text">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer container d-flex justify-content-center p-0">
+                        <button class="log-in btn btn-outline-secondary px-5 mb-3" type="button">Contact us</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -84,7 +179,7 @@
             <button class="reset-btn button-search btn btn-outline-secondary col-lg-1 col-3" id="resetButton" name="Reset"
                     type="button">Reset
             </button>
-            <button class="button-search btn btn-outline-secondary col-lg-1 col-3" id="searchButton" name="Search"
+            <button class="search button-search btn btn-outline-secondary col-lg-1 col-3" id="searchButton" name="Search"
                     type="button">Search
             </button>
         </div>
@@ -393,7 +488,7 @@
         </div>
     </div>
 </div>
-</div>
+
 <nav aria-label="Page navigation example container d-flex" id="pagination">
     <ul class="pagination container d-flex">
         <li class="page-item">
