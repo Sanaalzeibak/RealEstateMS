@@ -23,7 +23,7 @@ public class UserController {
         this.userDataStorage = userDataStorage;
     }
     @GetMapping("/users")
-    public String getItems(Model model) {
+    public String getUsers(Model model) {
 
         List<UserData> users = userDataStorage.getUsers();
         Gson gson = new Gson();
