@@ -21,7 +21,7 @@ public class PropertyController {
         this.propertyDataStorage = propertyDataStorage;
     }
     @GetMapping("/properties")
-    public String getItems(Model model) {
+    public String getProperties(Model model) {
 
         List<PropertyData> properties = propertyDataStorage.getProperties();
         Gson gson = new Gson();

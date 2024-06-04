@@ -34,15 +34,11 @@ public class RealEstateApplication {
 
 			// Execute a SQL query to select all data from the "properties" table
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM properties");
+			// Create a DataStorage object to store the extracted data
+			propertyDataStorage.extractData(resultSet);
 
 			// Execute a SQL query to select all data from the "users" table
 			ResultSet resultSet2 = statement.executeQuery("SELECT * FROM users");
-
-			// Create a DataStorage object to store the extracted data
-			//DataStorage dataStorage = new DataStorage();
-
-			// Extract data from the ResultSet and store it in the DataStorage object
-			propertyDataStorage.extractData(resultSet);
 
 			// Extract data from the ResultSet and store it in the DataStorage object
 			userDataStorage.extractData(resultSet2);
