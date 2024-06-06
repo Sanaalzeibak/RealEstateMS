@@ -11,8 +11,7 @@
     <!-- Select2 assets -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <!-- Stylesheet CSS links -->
-    <link href="../style.css" rel="stylesheet">
-    <link href="../styleSeller.css" rel="stylesheet">
+    <link href="../static/CSS/style.css" rel="stylesheet">
 </head>
 <body>
 <div class="bg dashboard-SP container-fluid">
@@ -21,7 +20,7 @@
         <div class="container-fluid d-flex justify-content-between">
             <a class="navbar-brand m-0" href="#">Real Estate Management</a>
             <div class="menu-btn" id="menuBtn">
-                <img src="../pic/hamburger_menu.png">
+                <img src="../static/Images/hamburger_menu.png" alt="hamburger menu">
             </div>
             <div id="overlay"></div>
             <!-- Navbar Items (Collapsible) -->
@@ -49,107 +48,9 @@
 <!-- Filters Container-->
 <div class="main-container container-fluid p-0" id="get-started">
     <div class="container filters-header">
-        <h4 class="title_filters col-lg-11 col-10 px-3 pt-3 ">Search for available properties</h4>
-        <div class="add_btn col-1"  data-bs-target="#addApartment">
-            <button class="add-apartment-btn" data-bs-target="#addApartment"
-                    data-bs-toggle="modal"
-                    type="button">
-                <img src="../pic/add_apartment.png">
-            </button>
-        </div>
-        <div class="menu-btn-filter col-1" id="menuBtnFilter">
-            <img src="../pic/filter.png">
-        </div>
-
-        <div aria-hidden="true" aria-labelledby="addApartment" class="add-apartment modal fade" id="addApartment"
-             tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered contact-apartment">
-                <div class="modal-content text-center d-flex align-items-center justify-content-center">
-                    <div class="mb-3 modal-header container d-flex justify-content-between ">
-                        <h5 class="modal-title contact-title col-11">Add new apartment</h5>
-                        <!-- Close button -->
-                        <button type="button" class="btn-close col-1" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <form class="col-md-6">
-                                <div class="form-group">
-                                    <label class="p-2" for="Vorname">Vorname*</label>
-                                    <input class="form-control" id="VornameA" placeholder="Vorname" type="text">
-                                </div>
-                            </form>
-                            <form class="col-md-6">
-                                <div class="form-group">
-                                    <label class="p-2" for="Nachname">Nachname*</label>
-                                    <input class="form-control" id="NachnameA" placeholder="Nachname"
-                                           type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="row">
-                            <form class="col-md-12">
-                                <div class="form-group">
-                                    <label class="p-2" >Email*</label>
-                                    <input class="form-control" id="EmailA" placeholder="example@gmail.com"
-                                           type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="row">
-                            <form class="col-md-12">
-                                <div class="form-group">
-                                    <label class="p-2" >Phone number*</label>
-                                    <input class="form-control" id="phoneNum" placeholder="+49 1234 567891"
-                                           type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="row">
-                            <form class="col-md-6">
-                                <div class="form-group">
-                                    <label class="p-2" for="Street">Street name*</label>
-                                    <input class="form-control" id="Street" placeholder="" type="text">
-                                </div>
-                            </form>
-                            <form class="col-md-6">
-                                <div class="form-group">
-                                    <label class="p-2" >Apartment number*</label>
-                                    <input class="form-control" id="ApartNum" placeholder=""
-                                           type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="row">
-                            <form class="col-md-6">
-                                <div class="form-group">
-                                    <label class="p-2">Postal code*</label>
-                                    <input class="form-control" id="Code" placeholder="" type="text">
-                                </div>
-                            </form>
-                            <form class="col-md-6">
-                                <div class="form-group">
-                                    <label class="p-2">City*</label>
-                                    <input class="form-control" id="City" placeholder=""
-                                           type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="row pb-4">
-                            <form class="col-md-12">
-                                <div class="form-group">
-                                    <label class="p-2" for="Nachricht">Ihre Nachricht </label>
-                                    <input class="form-control contact-message" id=""
-                                           placeholder="Nachricht"
-                                           type="text">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="modal-footer container d-flex justify-content-center p-0">
-                        <button class="log-in btn btn-outline-secondary px-5 mb-3" type="button">Contact us</button>
-                    </div>
-                </div>
-            </div>
+        <h4 class="title_filters col-lg-12 col-10 px-3 pt-3 ">Search for available properties</h4>
+        <div class="menu-btn-filter col-2" id="menuBtnFilter">
+            <img src="../static/Images/filter.png" alt="filters">
         </div>
     </div>
 
@@ -243,14 +144,14 @@
                 <div class="card mb-3" id="hcard1">
                     <div class="row g-0">
                         <div class="col-md-6">
-                            <img alt="..." class="img-fluid rounded-start" src="../pic/apartment1.jpg">
+                            <img alt="..." class="img-fluid rounded-start" src="../static/Images/apartment1.jpg">
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">
                                 <div class="px-2">
                                     <h5 class="card-title pb-2">Southend</h5>
                                     <div class="location-container d-flex align-items-center pb-2">
-                                        <img alt="..." class="img-fluid rounded-start" src="../pic/location_icon.png">
+                                        <img alt="..." class="img-fluid rounded-start" src="../static/Images/location_icon.png">
                                         <h6 class="card-subtitle text-body-secondary ">Frankfurt am Main (Apartment,
                                             Rent)</h6>
                                     </div>
@@ -288,33 +189,21 @@
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">
-                                <div class="px-2">
-                                    <h5 class="card-title pb-2">Southend</h5>
-                                    <div class="location-container d-flex align-items-center pb-2">
-                                        <img alt="..." class="img-fluid rounded-start" src="../pic/location_icon.png">
-                                        <h6 class="card-subtitle text-body-secondary ">Frankfurt am Main (Apartment,
-                                            Rent)</h6>
-                                    </div>
-                                    <p class="card-descr ">Nice view, friendly neighborhood</p>
-                                    <h6>Beschreibung</h6>
-                                    <p class="card-info">Frei ab 01.06.2024</p>
-                                    <p class="card-info">Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+                                <h5 class="card-title pb-2">Westend</h5>
+                                <div class="location-container d-flex align-items-center pb-2">
+                                    <img alt="..." class="img-fluid rounded-start" src="../static/Images/location_icon.png">
+                                    <h6 class="card-subtitle text-body-secondary ">Berlin (Share Apartment, Rent)</h6>
                                 </div>
+                                <h6 class="card-descr px-2">Nice view, friendly neighborhood</h6>
                                 <div class="row-card-properties d-flex justify-content-between">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <p class="card-text">$2800</p>
                                     </div>
-                                    <div class="col-md-3 ">
+                                    <div class="col-md-4">
                                         <p class="card-text">80m²</p>
                                     </div>
-                                    <div class="col-md-3">
-                                        <p class="card-text">2 Rooms</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button class="contact-btn btn btn-outline-secondary" data-bs-target="#contact"
-                                                data-bs-toggle="modal"
-                                                type="button">Contact
-                                        </button>
+                                    <div class="col-md-4">
+                                        <p class="card-text">3 Rooms</p>
                                     </div>
                                 </div>
                             </div>
@@ -325,13 +214,13 @@
                 <div class="card mb-3" id="hcard3">
                     <div class="row g-0">
                         <div class="col-md-6">
-                            <img alt="..." class="img-fluid rounded-start" src="../pic/apartment1.jpg">
+                            <img alt="..." class="img-fluid rounded-start" src="../static/Images/apartment1.jpg">
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">
                                 <h5 class="card-title pb-2">Northend</h5>
                                 <div class="location-container d-flex align-items-center pb-2">
-                                    <img alt="..." class="img-fluid rounded-start" src="../pic/location_icon.png">
+                                    <img alt="..." class="img-fluid rounded-start" src="../static/Images/location_icon.png">
                                     <h6 class="card-subtitle text-body-secondary ">Aschaffenburg (House, Buy)</h6>
                                 </div>
                                 <h6 class="card-descr px-2">Nice view, friendly neighborhood</h6>
@@ -354,13 +243,13 @@
                 <div class="card mb-3" id="hcard4">
                     <div class="row g-0">
                         <div class="col-md-6">
-                            <img alt="..." class="img-fluid rounded-start" src="../pic/apartment1.jpg">
+                            <img alt="..." class="img-fluid rounded-start" src="../static/Images/apartment1.jpg">
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">
                                 <h5 class="card-title pb-2">Northend</h5>
                                 <div class="location-container d-flex align-items-center pb-2">
-                                    <img alt="..." class="img-fluid rounded-start" src="../pic/location_icon.png">
+                                    <img alt="..." class="img-fluid rounded-start" src="../static/Images/location_icon.png">
                                     <h6 class="card-subtitle text-body-secondary ">Aschaffenburg (House, Buy)</h6>
                                 </div>
                                 <h6 class="card-descr px-2">Nice view, friendly neighborhood</h6>
@@ -383,13 +272,13 @@
                 <div class="card mb-3" id="hcard5">
                     <div class="row g-0">
                         <div class="col-md-6">
-                            <img alt="..." class="img-fluid rounded-start" src="../pic/apartment1.jpg">
+                            <img alt="..." class="img-fluid rounded-start" src="../static/Images/apartment1.jpg">
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">
                                 <h5 class="card-title pb-2">Northend</h5>
                                 <div class="location-container d-flex align-items-center pb-2">
-                                    <img alt="..." class="img-fluid rounded-start" src="../pic/location_icon.png">
+                                    <img alt="..." class="img-fluid rounded-start" src="../static/Images/location_icon.png">
                                     <h6 class="card-subtitle text-body-secondary ">Aschaffenburg (House, Buy)</h6>
                                 </div>
                                 <h6 class="card-descr px-2">Nice view, friendly neighborhood</h6>
@@ -412,13 +301,13 @@
                 <div class="card mb-3" id="hcard6">
                     <div class="row g-0">
                         <div class="col-md-6">
-                            <img alt="..." class="img-fluid rounded-start" src="../pic/apartment1.jpg">
+                            <img alt="..." class="img-fluid rounded-start" src="../static/Images/apartment1.jpg">
                         </div>
                         <div class="col-md-6">
                             <div class="card-body">
                                 <h5 class="card-title pb-2">Northend</h5>
                                 <div class="location-container d-flex align-items-center pb-2">
-                                    <img alt="..." class="img-fluid rounded-start" src="../pic/location_icon.png">
+                                    <img alt="..." class="img-fluid rounded-start" src="../static/Images/location_icon.png">
                                     <h6 class="card-subtitle text-body-secondary ">Aschaffenburg (House, Buy)</h6>
                                 </div>
                                 <h6 class="card-descr px-2">Nice view, friendly neighborhood</h6>
@@ -544,12 +433,12 @@
 <!-- Bootstrap JavaScript (required for toggling the collapsed navbar) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="../JavaScript/Pagination.js"></script>
-<script src="../JavaScript/DropdownFunctions.js"></script>
-<script src="../JavaScript/ButtonFunctions.js"></script>
-<script src="../JavaScript/PhotoGeneratorFunction.js"></script>
-<script src="../JavaScript/HamburgerMenu.js"></script>
-<script src="../JavaScript/RadioButtonFunction.js"></script>
+<script src="../static/JavaScript/Pagination.js"></script>
+<script src="../static/JavaScript/DropdownFunctions.js"></script>
+<script src="../static/JavaScript/ButtonFunctions.js"></script>
+<script src="../static/JavaScript/PhotoGeneratorFunction.js"></script>
+<script src="../static/JavaScript/HamburgerMenu.js"></script>
+<script src="../static/JavaScript/RadioButtonFunction.js"></script>
 <!-- Links to Bootstrap assets -->
 <script crossorigin="anonymous"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

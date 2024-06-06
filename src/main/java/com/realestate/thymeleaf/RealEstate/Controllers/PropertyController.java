@@ -20,13 +20,13 @@ public class PropertyController {
     public PropertyController(PropertyDataStorage propertyDataStorage) {
         this.propertyDataStorage = propertyDataStorage;
     }
-    @GetMapping("/properties")
+    @GetMapping("/sellerPage")
     public String getProperties(Model model) {
 
         List<PropertyData> properties = propertyDataStorage.getProperties();
         Gson gson = new Gson();
         String jsonProperties = gson.toJson(properties);
         model.addAttribute("jsonProperties", jsonProperties);
-        return "properties"; // returns the name of the view template (properties.html)
+        return "sellerpage"; // returns the name of the view template (properties.html)
     }
 }

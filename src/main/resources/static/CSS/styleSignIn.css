@@ -29,8 +29,6 @@
     color: #fff;
 }
 
-
-
 .custom-input {
     border: none; /* Remove all borders */
     border-bottom: 1px solid #ccc; /* Add only a bottom border */
@@ -42,6 +40,7 @@
 .custom-input:focus {
     border-bottom-color: #007bff; /* Change color to blue (Bootstrap primary color) on focus */
 }
+
 .sing-in-container{
     border-right: 1px solid #ccc;
 }
@@ -49,51 +48,54 @@
 .label-radionbox{
     display: inline-block;
 }
+
 .form-control{
-    font-size: 0.9rem
+    font-size: 0.9rem;
 }
+
 .form-group{
     padding-bottom: 1rem;
 }
 
 .sing-in-picture{
-    background-image: url('pic/background_dashboard.jpg');
+    background-image: url('../Images/background_dashboard.jpg');
     background-size: cover;
     background-position: center;
 }
-
 
 .side-menu ul {
     list-style-type: none;
     padding: 0;
 }
 
-
 .menu-btn.open {
     position: fixed;
     right: 1rem;
 }
 
-
 .filters-header{
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .filtering-box.open-filters{
     height: 270px;
     opacity: 1;
 }
+
 .side-menu.open {
     right: 0;
     opacity: 1;
 }
+
 .menu-btn {
     display: block;
     position: fixed;
     right: 1rem;
     z-index: 9;
 }
+
 .menu-btn img {
     max-width: 30px;
 }
@@ -111,6 +113,7 @@
     opacity: 0;
     z-index: 8;
 }
+
 .side-menu ul li{
     justify-content: end;
     display: flex;
@@ -120,6 +123,7 @@
     background-color: unset;
     color: #333;
 }
+
 .nav-link:hover, .nav-link:focus{
     text-decoration: underline;
     transition: text-decoration 0.8s ease-in-out;
@@ -128,47 +132,47 @@
 }
 
 @media (min-width: 992px) {
-    .menu-btn{
+    .menu-btn {
         display: none;
         padding-left: 25px;
         font-size: 30px;
         cursor: pointer;
         z-index: 10;
     }
-
-
 }
-
 
 @media (min-width: 768px) {
 
     .navbar-items-list{
-        display: absolute;
-        position: fix;
+        display: block; /* Changed 'display: absolute' to 'display: block' */
+        position: fixed; /* Changed 'position: fix' to 'position: fixed' */
     }
+
     .menu-btn {
         display: none;
     }
 
-    .navbar-nav{
+    .navbar-nav {
         display: flex;
         flex-direction: row;
         align-items: center;
     }
+
     .side-menu {
-         padding: 0;
-         width: unset;
-         position: unset;
-         background: unset;
-         box-shadow: none;
-         transition: none;
-         opacity: 1;
+        padding: 0;
+        width: unset;
+        position: unset;
+        background: unset;
+        box-shadow: none;
+        transition: none;
+        opacity: 1;
     }
 }
 
 @media (min-width: 992px) {
     font-size: medium;
 }
+
 .footer{
     background-color: #333333;
     color: #fff;

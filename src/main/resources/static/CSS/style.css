@@ -44,7 +44,7 @@ p {
     padding-bottom: 10%;
 }
 .navbar-items-list{
-        justify-content: end;
+    justify-content: end;
 }
 
 .btn{
@@ -71,14 +71,14 @@ p {
 .dashboard{
     height: 100vh;
     width: 100vw;
-    background-image: url('pic/background_dashboard.jpg');
+    background-image: url('../Images/background_dashboard.jpg');
     background-size: cover;
     background-position: center;
     position: relative; /* Establish positioning context */
 }
 .dashboard-SP{
     height: 80vh;
-    background-image: url('pic/background_dashboard.jpg');
+    background-image: url('../Images/background_dashboard.jpg');
     background-size: cover;
     background-position: center;
     position: relative; /* Establish positioning context */
@@ -330,10 +330,10 @@ h6{
     left: unset;
     margin-left: 0;
     position: unset;
-        display: flex;
-        justify-content: start;
-        align-items: start;
-    }
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
 }
 
 .title_filters{
@@ -414,13 +414,13 @@ h6{
         align-items: center;
     }
     .side-menu {
-         padding: 0;
-         width: unset;
-         position: unset;
-         background: unset;
-         box-shadow: none;
-         transition: none;
-         opacity: 1;
+        padding: 0;
+        width: unset;
+        position: unset;
+        background: unset;
+        box-shadow: none;
+        transition: none;
+        opacity: 1;
     }
 }
 
@@ -432,4 +432,3 @@ h6{
         display:none;
     }
 }
-
