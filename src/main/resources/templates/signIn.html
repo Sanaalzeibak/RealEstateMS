@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -11,7 +11,7 @@
     <!-- Select2 assets -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <!-- Stylesheet CSS links -->
-    <link href="../styleSignIn.css" rel="stylesheet">
+    <link href="/CSS/styleSignIn.css" rel="stylesheet">
 
 </head>
 <body>
@@ -105,7 +105,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="extisting-account col-md-5 py-3 text-center">Du hast bereits ein Konto?
-                <a href="Index.html#log-in">Anmelden</a>
+                <a href="dashboard">Anmelden</a>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -151,12 +151,11 @@
     </div>
 </footer>
 <!-- JavaScript Script -->
-<script src="../static/JavaScript/HamburgerMenu.js"></script>
-<script src="../static/JavaScript/RadioButtonFunction.js"></script>
+<script src="/JavaScript/HamburgerMenu.js"></script>
+<script src="/JavaScript/RadioButtonFunction.js"></script>
 <!-- Links to Bootstrap assets -->
 <script crossorigin="anonymous"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>

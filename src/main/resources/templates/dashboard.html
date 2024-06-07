@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -11,7 +11,7 @@
     <!-- Select2 assets -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <!-- Stylesheet CSS links -->
-    <link href="../static/CSS/style.css" rel="stylesheet">
+    <link href="/CSS/style.css" rel="stylesheet">
 </head>
 <body>
 <div class="bg dashboard container-fluid">
@@ -76,7 +76,7 @@
                             <button class="log-in btn btn-outline-secondary px-5 mb-3" type="button">Sign In</button>
                             <div class="create-account col-12 justify-content-start py-2">
                                 You still don't have an account?
-                                <a class="account active" href="IndexSingIn.html">Create your account</a>
+                                <a class="account active" href="signIn">Create your account</a>
                             </div>
                         </div>
                     </div>
@@ -139,10 +139,9 @@
 <!-- Bootstrap JavaScript (required for toggling the collapsed navbar) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="../../java/com/realestate/thymeleaf/RealEstate/script.js"></script>
-<script src="../static/JavaScript/ButtonFunctions.js"></script>
-<script src="../static/JavaScript/HamburgerMenu.js"></script>
-<script src="../static/JavaScript/RadioButtonFunction.js"></script>
+<script src="/JavaScript/ButtonFunctions.js"></script>
+<script src="/JavaScript/HamburgerMenu.js"></script>
+<script src="/JavaScript/RadioButtonFunction.js"></script>
 <!-- Links to Bootstrap assets -->
 <script crossorigin="anonymous"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

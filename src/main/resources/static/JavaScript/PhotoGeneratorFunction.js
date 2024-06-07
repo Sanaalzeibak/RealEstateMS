@@ -35,8 +35,8 @@ function httpRequest() {
 
 function displayImage(data) {
     // Sets the size of the picture
-    const width = 507;
-    const height = 325;
+    const width = 540;
+    const height = 350;
     const imageUrl = `${data.urls.raw}&w=${width}&h=${height}&fit=crop`;
 
     // Using innerHTML to output picture as HTML

@@ -1,5 +1,4 @@
 /* CSS Code goes here */
-
 .navbar .navbar-brand, .nav-link,
 .title_filters, .nav-link:hover,
 .nav-link:focus, .card-body{
@@ -394,12 +393,12 @@ h6{
 }
 
 @media (min-width: 768px) {
-    .log-in{
+    .log-in {
         margin: 0 0 0 0.5rem;
     }
-    .navbar-items-list{
-        display: absolute;
-        position: fix;
+    .navbar-items-list {
+        display: block;
+        position: fixed;
     }
     .menu-btn {
         display: none;
@@ -407,7 +406,7 @@ h6{
     .filtering-box {
         justify-content: space-between;
     }
-    .navbar-nav{
+    .navbar-nav {
         display: flex;
         flex-direction: row;
         align-items: center;

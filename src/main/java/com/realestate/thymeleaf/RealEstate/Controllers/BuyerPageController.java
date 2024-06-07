@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 @Controller
-public class PropertyController {
+public class BuyerPageController {
 
     private final PropertyDataStorage propertyDataStorage;
 
     @Autowired
-    public PropertyController(PropertyDataStorage propertyDataStorage) {
+    public BuyerPageController(PropertyDataStorage propertyDataStorage) {
         this.propertyDataStorage = propertyDataStorage;
     }
-    @GetMapping("/sellerPage")
+    @GetMapping("/BuyerPage")
     public String getProperties(Model model) {
 
         List<PropertyData> properties = propertyDataStorage.getProperties();
         Gson gson = new Gson();
         String jsonProperties = gson.toJson(properties);
         model.addAttribute("jsonProperties", jsonProperties);
-        return "sellerpage"; // returns the name of the view template (properties.html)
+        return "buyerPage";
     }
 }
