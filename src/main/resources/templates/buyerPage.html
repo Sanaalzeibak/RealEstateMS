@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -65,8 +65,8 @@
                 <option disabled selected  value="">Select a Property Type</option>
             </select>
 
-            <select class="form-select select2" id="tenureType" style="width: 200px;">
-                <option disabled selected  value="">Tenure Type</option>
+            <select class="form-select select2" id="status" style="width: 200px;">
+                <option disabled selected  value="">Status</option>
             </select>
 
             <select class="form-select select2" id="rooms" style="width: 200px;">
@@ -76,6 +76,7 @@
             <select class="form-select select2" id="budget" style="width: 200px;">
                 <option disabled selected  value="">Budget</option>
             </select>
+
             <!-- Button -->
             <button class="reset-btn button-search btn btn-outline-secondary col-lg-1 col-3" id="resetButton" name="Reset"
                     type="button">Reset
@@ -140,192 +141,64 @@
                         </div>
                     </div>
                 </div>
-                <!-- Horizontal Card 1 -->
-                <div class="card mb-3" id="hcard1">
-                    <div class="row g-0">
-                        <div class="col-md-6">
-                            <img alt="..." class="img-fluid rounded-start" src="/Images/apartment1.jpg">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body">
-                                <div class="px-2">
-                                    <h5 class="card-title pb-2">Southend</h5>
-                                    <div class="location-container d-flex align-items-center pb-2">
-                                        <img alt="..." class="img-fluid rounded-start" src="/Images/location_icon.png">
-                                        <h6 class="card-subtitle text-body-secondary ">Frankfurt am Main (Apartment,
-                                            Rent)</h6>
-                                    </div>
-                                    <p class="card-descr ">Nice view, friendly neighborhood</p>
-                                    <h6>Beschreibung</h6>
-                                    <p class="card-info">Frei ab 01.06.2024</p>
-                                    <p class="card-info">Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+                <!-- Horizontal Cards -->
+                <div class="container" id="properties-container">
+                    <!--Cards dynamically set here-->
+                </div>
+                <script th:inline="javascript">
+                    /*<![CDATA[*/
+                    // Access the JSON data from the model
+                    const jsonProperties = /*[[${jsonProperties}]]*/ '';
+
+                    // Parse the JSON string to JavaScript object
+                    const properties = JSON.parse(jsonProperties);
+
+                    // Get the container element where cards will be added
+                    const container = document.getElementById('properties-container');
+
+                    // Iterate over properties and create card elements
+                    let cardsHTML = '';
+                    properties.forEach(function(property) {
+                        cardsHTML += `
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-6">
+                                    <img src="/Images/apartment1.jpg" class="img-fluid rounded-start" alt="Property Image">
                                 </div>
-                                <div class="row-card-properties d-flex justify-content-between">
-                                    <div class="col-md-3">
-                                        <p class="card-text">$2800</p>
-                                    </div>
-                                    <div class="col-md-3 ">
-                                        <p class="card-text">80m²</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p class="card-text">2 Rooms</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button class="contact-btn btn btn-outline-secondary" data-bs-target="#contact"
-                                                data-bs-toggle="modal"
-                                                type="button">Contact
-                                        </button>
+                                <div class="col-md-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title pb-2">Real-Estate Nr.: ${property.id}</h5>
+                                        <div class="location-container d-flex align-items-center pb-2">
+                                            <img src="/Images/location_icon.png" class="img-fluid rounded-start" alt="Location Icon">
+                                            <h6 class="card-subtitle text-body-secondary">${property.city} (${property.type})</h6>
+                                        </div>
+                                        <p class="card-info">Country: ${property.country}</p>
+                                        <p class="card-info">Address: ${property.address}</p>
+                                        <p class="card-info">${property.perimeter}</p>
+                                        <p class="card-info">Status: ${property.listingstatus}</p>
+                                        <div class="row-card-properties d-flex justify-content-between">
+                                            <div class="col-md-3">
+                                                <p class="card-text">$${property.rPrice}</p>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <p class="card-text">${property.squarefootage}m²</p>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <p class="card-text">${property.room} Rooms</p>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <button class="contact-btn btn btn-outline-secondary" data-bs-target="#contact" data-bs-toggle="modal" type="button">Contact</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Horizontal Card 2 -->
-                <div class=" card mb-3" id="hcard2">
-                    <div class="row g-0">
-                        <div class="col-md-6">
-                            <div id="apiTest"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body">
-                                <h5 class="card-title pb-2">Westend</h5>
-                                <div class="location-container d-flex align-items-center pb-2">
-                                    <img alt="..." class="img-fluid rounded-start" src="/Images/location_icon.png">
-                                    <h6 class="card-subtitle text-body-secondary ">Berlin (Share Apartment, Rent)</h6>
-                                </div>
-                                <h6 class="card-descr px-2">Nice view, friendly neighborhood</h6>
-                                <div class="row-card-properties d-flex justify-content-between">
-                                    <div class="col-md-4">
-                                        <p class="card-text">$2800</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <p class="card-text">80m²</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <p class="card-text">3 Rooms</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Horizontal Card 3 -->
-                <div class="card mb-3" id="hcard3">
-                    <div class="row g-0">
-                        <div class="col-md-6">
-                            <img alt="..." class="img-fluid rounded-start" src="/Images/apartment1.jpg">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body">
-                                <h5 class="card-title pb-2">Northend</h5>
-                                <div class="location-container d-flex align-items-center pb-2">
-                                    <img alt="..." class="img-fluid rounded-start" src="/Images/location_icon.png">
-                                    <h6 class="card-subtitle text-body-secondary ">Aschaffenburg (House, Buy)</h6>
-                                </div>
-                                <h6 class="card-descr px-2">Nice view, friendly neighborhood</h6>
-                                <div class="row-card-properties d-flex justify-content-between">
-                                    <div class="col-md-4 ">
-                                        <p class="card-text">$2800</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <p class="card-text">80m²</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <p class="card-text">3 Rooms</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Horizontal Card 3 -->
-                <div class="card mb-3" id="hcard4">
-                    <div class="row g-0">
-                        <div class="col-md-6">
-                            <img alt="..." class="img-fluid rounded-start" src="/Images/apartment1.jpg">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body">
-                                <h5 class="card-title pb-2">Northend</h5>
-                                <div class="location-container d-flex align-items-center pb-2">
-                                    <img alt="..." class="img-fluid rounded-start" src="/Images/location_icon.png">
-                                    <h6 class="card-subtitle text-body-secondary ">Aschaffenburg (House, Buy)</h6>
-                                </div>
-                                <h6 class="card-descr px-2">Nice view, friendly neighborhood</h6>
-                                <div class="row-card-properties d-flex justify-content-between">
-                                    <div class="col-md-4">
-                                        <p class="card-text">$2800</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <p class="card-text">80m²</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <p class="card-text">3 Rooms</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Horizontal Card 3 -->
-                <div class="card mb-3" id="hcard5">
-                    <div class="row g-0">
-                        <div class="col-md-6">
-                            <img alt="..." class="img-fluid rounded-start" src="/Images/apartment1.jpg">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body">
-                                <h5 class="card-title pb-2">Northend</h5>
-                                <div class="location-container d-flex align-items-center pb-2">
-                                    <img alt="..." class="img-fluid rounded-start" src="/Images/location_icon.png">
-                                    <h6 class="card-subtitle text-body-secondary ">Aschaffenburg (House, Buy)</h6>
-                                </div>
-                                <h6 class="card-descr px-2">Nice view, friendly neighborhood</h6>
-                                <div class="row-card-properties d-flex justify-content-between">
-                                    <div class="col-md-4">
-                                        <p class="card-text">$2800</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <p class="card-text">80m²</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <p class="card-text">3 Rooms</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Horizontal Card 3 -->
-                <div class="card mb-3" id="hcard6">
-                    <div class="row g-0">
-                        <div class="col-md-6">
-                            <img alt="..." class="img-fluid rounded-start" src="/Images/apartment1.jpg">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body">
-                                <h5 class="card-title pb-2">Northend</h5>
-                                <div class="location-container d-flex align-items-center pb-2">
-                                    <img alt="..." class="img-fluid rounded-start" src="/Images/location_icon.png">
-                                    <h6 class="card-subtitle text-body-secondary ">Aschaffenburg (House, Buy)</h6>
-                                </div>
-                                <h6 class="card-descr px-2">Nice view, friendly neighborhood</h6>
-                                <div class="row-card-properties d-flex justify-content-between">
-                                    <div class="col-md-4">
-                                        <p class="card-text">$2800</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <p class="card-text">80m²</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <p class="card-text">3 Rooms</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        </div>`;
+                    });
+
+                    container.innerHTML = cardsHTML;
+                    /*]]>*/
+                </script>
             </div>
             <!-- Vertical Card -->
             <div class="vertical-card scrollable-container container-fluid col-md-4 p-0 g-0">
@@ -434,9 +307,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="/JavaScript/Pagination.js"></script>
-<script src="/JavaScript/DropdownFunctions.js"></script>
 <script src="/JavaScript/ButtonFunctions.js"></script>
-<script src="/JavaScript/PhotoGeneratorFunction.js"></script>
 <script src="/JavaScript/HamburgerMenu.js"></script>
 <script src="/JavaScript/RadioButtonFunction.js"></script>
 <!-- Links to Bootstrap assets -->

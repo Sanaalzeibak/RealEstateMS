@@ -40,9 +40,10 @@ function displayImage(data) {
     const imageUrl = `${data.urls.raw}&w=${width}&h=${height}&fit=crop`;
 
     // Using innerHTML to output picture as HTML
-    document.getElementById("apiTest").innerHTML = ` 
-        <img class="img-fluid rounded-start" src="${imageUrl}" alt="${data.alt_description}" />
-    `;
-}
+    const imgElement = document.createElement('img');
+    imgElement.className = "img-fluid rounded-start";
+    imgElement.src = imageUrl;
+    imgElement.alt = data.alt_description;
 
-httpRequest();
+    document.getElementById("image-container-${i}").appendChild(imgElement);
+}
