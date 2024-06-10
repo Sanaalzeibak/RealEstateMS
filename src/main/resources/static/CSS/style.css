@@ -94,7 +94,14 @@ p {
 .custom-input:focus {
     border-bottom-color: #007bff; /* Change color to blue (Bootstrap primary color) on focus */
 }
-
+.card-text{
+    display: flex;
+    justify-content: center;
+}
+.button-contact-center{
+    align-items: center;
+    display: flex;
+}
 
 .modal-footer {
     border: none;
@@ -429,4 +436,34 @@ h6{
     .contact-btn{
         display:none;
     }
+}
+
+
+/* Dark overlay for the sold card */
+.card.sold {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.2); /* Dark overlay */
+    color: #ccc; /* Light text color for contrast */
+}
+
+/* Disabled button styles */
+.card.sold .contact-btn {
+    pointer-events: none;
+    color: #333;
+}
+
+/* Overlay effect */
+.card.sold::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Ensure overlay is above other content */
+}
+
+.card.sold .card-content, .card.sold .contact-btn {
+    position: relative;
+    z-index: 2; /* Ensure content and buttons are above overlay */
 }

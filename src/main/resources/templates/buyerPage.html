@@ -175,8 +175,8 @@
                                         <p class="card-info">Country: ${property.country}</p>
                                         <p class="card-info">Address: ${property.address}</p>
                                         <p class="card-info">${property.perimeter}</p>
-                                        <p class="card-info">Status: ${property.listingstatus}</p>
-                                        <div class="row-card-properties d-flex justify-content-between">
+                                        <p class="card-info status">Status: ${property.listingstatus}</p>
+                                        <div class="row-card-properties d-flex justify-content-between align-items-center">
                                             <div class="col-md-3">
                                                 <p class="card-text">$${property.rPrice}</p>
                                             </div>
@@ -186,7 +186,7 @@
                                             <div class="col-md-3">
                                                 <p class="card-text">${property.room} Rooms</p>
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 button-contact-center">
                                                 <button class="contact-btn btn btn-outline-secondary" data-bs-target="#contact" data-bs-toggle="modal" type="button">Contact</button>
                                             </div>
                                         </div>
@@ -310,6 +310,7 @@
 <script src="/JavaScript/ButtonFunctions.js"></script>
 <script src="/JavaScript/HamburgerMenu.js"></script>
 <script src="/JavaScript/RadioButtonFunction.js"></script>
+<script src="/JavaScript/SoldOut.js"></script>
 <!-- Links to Bootstrap assets -->
 <script crossorigin="anonymous"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
