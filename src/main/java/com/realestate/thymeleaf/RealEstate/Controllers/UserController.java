@@ -54,5 +54,9 @@ public class UserController {
         userRepository.save(user);
         return "redirect:/success";  // Redirect to a success page or the desired page
     }
+    @GetMapping("/success")
+    public String successPage() {
+        return "success";  // returns the name of the success view template (success.html)
+    }
 
 }
