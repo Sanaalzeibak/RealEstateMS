@@ -1,24 +1,47 @@
-package com.realestate.thymeleaf.RealEstate.DataStorage;
+package com.realestate.thymeleaf.RealEstate.Model;
+
+
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name="properties")
 public class PropertyData {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     // attributes of table properties
-    private String id;
+
+    @Column(name = "PropertyID")
+    private Long id;
+    @Column(name = "Address")
     private String address;
+    @Column(name = "City")
     private String city;
+    @Column(name = "ZIPCode")
     private String zip;
+    @Column(name = "Country")
     private String country;
+    @Column(name = "PropertyType")
     private String type;
+    @Column(name = "PurchasePrice")
     private String pPrice;
+    @Column(name = "RentalPrice")
     private String rPrice;
+    @Column(name = "Perimeter")
     private String perimeter;
+    @Column(name = "Rooms")
     private String room;
+    @Column(name = "Bathrooms")
     private String bathroom;
+    @Column(name = "SquareFootage")
     private String squarefootage;
+    @Column(name = "ListingStatus")
     private String listingstatus;
 
 
     // Constructor
-    public PropertyData(String id, String address, String city, String zip, String country, String type, String pPrice, String rPrice, String perimeter, String room, String bathroom, String squarefootage, String listingstatus) {
+    public PropertyData(Long id, String address, String city, String zip, String country, String type, String pPrice, String rPrice, String perimeter, String room, String bathroom, String squarefootage, String listingstatus) {
         this.id = id;
         this.address = address;
         this.city = city;
@@ -34,12 +57,16 @@ public class PropertyData {
         this.listingstatus = listingstatus;
     }
 
+    public PropertyData() {
+
+    }
+
     // getter and setter methods
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -1,8 +1,8 @@
 package com.realestate.thymeleaf.RealEstate.Controllers;
 
 
-import com.realestate.thymeleaf.RealEstate.DataStorage.PropertyData;
-import com.realestate.thymeleaf.RealEstate.DataStorage.PropertyDataStorage;
+import com.realestate.thymeleaf.RealEstate.Model.PropertyData;
+import com.realestate.thymeleaf.RealEstate.Model.PropertyDataStorage;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +13,7 @@ import java.util.List;
 
 @Controller
 public class BuyerPageController {
+    /*
 
     private final PropertyDataStorage propertyDataStorage;
 
@@ -29,4 +30,6 @@ public class BuyerPageController {
         model.addAttribute("jsonProperties", jsonProperties);
         return "buyerPage";
     }
+
+     */
 }

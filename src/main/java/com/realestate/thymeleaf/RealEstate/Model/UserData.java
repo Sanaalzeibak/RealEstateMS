@@ -1,9 +1,14 @@
-package com.realestate.thymeleaf.RealEstate.DataStorage;
+package com.realestate.thymeleaf.RealEstate.Model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="user_data")
 public class UserData {
 
- // attributes of table user
- private String id;
+ @Id
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
+ private Long id;
  private String firstName;
  private String lastName;
  private String email;
@@ -12,7 +17,9 @@ public class UserData {
  private String role;
 
  // Constructor
- public UserData(String id, String firstName,String lastName, String email, String phoneNumber, String password, String role) {
+
+
+ public UserData(Long id, String firstName, String lastName, String email, String phoneNumber, String password, String role) {
   this.id = id;
   this.firstName = firstName;
   this.lastName = lastName;
@@ -22,10 +29,15 @@ public class UserData {
   this.role = role;
  }
 
-// getter and setter methods
- public String getId(){ return id; }
+ public UserData() {
 
- public void setId(String id) { this.id = id; }
+ }
+
+
+ // getter and setter methods
+ public Long getId(){ return id; }
+
+ public void setId(Long id) { this.id = id; }
 
  public String getFirstName() { return firstName; }
 
@@ -51,4 +63,3 @@ public class UserData {
 
  public void setRole(String role) { this.role = role; }
 }
-

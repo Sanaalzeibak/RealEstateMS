@@ -1,12 +1,9 @@
-package com.realestate.thymeleaf.RealEstate.DataStorage;
+package com.realestate.thymeleaf.RealEstate.Model;
 import org.springframework.stereotype.Component;
-
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class UserDataStorage {
+    /*
     private List<UserData> users = new ArrayList<UserData>();
 
     // ArrayLists to store IDs and addresses extracted from the ResultSet
@@ -51,5 +48,7 @@ public class UserDataStorage {
     public List<UserData> getUsers() {
         return users;
     }
+
+     */
 
 }

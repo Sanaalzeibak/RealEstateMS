@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+</head>
+<body>
+<h2>User Login</h2>
+<form action="/login" method="post">
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br>
+
+    <input type="submit" value="Login">
+</form>
+
+<h1>User List</h1>
+<!-- You can include the JSON data directly in a script tag -->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    // Access the JSON data from the model
+    var jsonUsers = /*[[${users}]]*/ '';
+
+    // Parse the JSON string to JavaScript object
+    var users = JSON.parse(jsonUsers);
+
+    // Iterate over users and display them as needed
+    for (var i = 0; i < users.length; i++) {
+        var user = users[i];
+        document.write("<p>ID: " + user.id + ", First Name: " + user.firstName + ", Last Name: " + user.lastName + ", Email: " + user.email + ", Phone Number: " + user.phoneNumber + "</p>");
+        // Add other users as needed
+    }
+    /*]]>*/
+</script>
+
+</body>
+</html>

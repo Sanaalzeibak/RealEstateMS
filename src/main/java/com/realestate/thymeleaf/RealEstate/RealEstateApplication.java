@@ -1,7 +1,7 @@
 package com.realestate.thymeleaf.RealEstate;
 
-import com.realestate.thymeleaf.RealEstate.DataStorage.PropertyDataStorage;
-import com.realestate.thymeleaf.RealEstate.DataStorage.UserDataStorage;
+import com.realestate.thymeleaf.RealEstate.Model.PropertyDataStorage;
+import com.realestate.thymeleaf.RealEstate.Model.UserDataStorage;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -22,7 +22,7 @@ public class RealEstateApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RealEstateApplication.class, args);
 	}
-
+/*
 	@PostConstruct
 	public void init() {
 		try {
@@ -49,5 +49,7 @@ public class RealEstateApplication {
 			e.printStackTrace();
 		}
 	}
+
+ */
 }
 

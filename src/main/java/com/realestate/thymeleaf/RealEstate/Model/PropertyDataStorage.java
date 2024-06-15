@@ -1,12 +1,9 @@
-package com.realestate.thymeleaf.RealEstate.DataStorage;
+package com.realestate.thymeleaf.RealEstate.Model;
 import org.springframework.stereotype.Component;
-
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class PropertyDataStorage {
+    /*
     private List<PropertyData> properties = new ArrayList<PropertyData>();
 
     // ArrayLists to store IDs and addresses extracted from the ResultSet
