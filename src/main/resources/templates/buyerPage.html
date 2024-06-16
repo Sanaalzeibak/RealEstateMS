@@ -170,20 +170,20 @@
                                         <h5 class="card-title pb-2">Real-Estate Nr.: ${property.id}</h5>
                                         <div class="location-container d-flex align-items-center pb-2">
                                             <img src="/Images/location_icon.png" class="img-fluid rounded-start" alt="Location Icon">
-                                            <h6 class="card-subtitle text-body-secondary">${property.city} (${property.type})</h6>
+                                            <h6 class="card-subtitle text-body-secondary">${property.city} (${property.propertyType})</h6>
                                         </div>
                                         <p class="card-info">Country: ${property.country}</p>
                                         <p class="card-info">Address: ${property.address}</p>
-                                        <p class="card-info status">Status: ${property.listingstatus}</p>
+                                        <p class="card-info status">Status: ${property.listingStatus}</p>
                                         <div class="row-card-properties d-flex justify-content-between align-items-center">
                                             <div class="col-md-3">
-                                                <p class="card-text">$${property.rPrice}</p>
+                                                <p class="card-text">$${property.rentalPrice}</p>
                                             </div>
                                             <div class="col-md-3">
-                                                <p class="card-text">${property.squarefootage}m²</p>
+                                                <p class="card-text">${property.squareFootage}m²</p>
                                             </div>
                                             <div class="col-md-3">
-                                                <p class="card-text">${property.room} Rooms</p>
+                                                <p class="card-text">${property.rooms} Rooms</p>
                                             </div>
                                             <div class="col-md-3 button-contact-center">
                                                 <button class="contact-btn btn btn-outline-secondary" data-bs-target="#contact" data-bs-toggle="modal" type="submit">Contact</button>
