@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let regexPropertyType = new RegExp(selectPropertyType, 'gi');
         let regexStatus = new RegExp(selectStatus, 'gi');
         let regexRooms = new RegExp(selectRooms, 'gi');
-
+        const verticalCard = document.getElementById('vertical-card');
         $('.card').each(function() {
             let card = $(this);
             let cardFindLocation = card.find('.card-subtitle').text();
@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 budgetMatch = !isNaN(cardFindBudget) && cardFindBudget >= minBudget && cardFindBudget <= maxBudget;
             }
 
-            if (locationMatch && propertyTypeMatch && statusMatch && roomsMatch && budgetMatch) {
+            if (locationMatch && propertyTypeMatch && statusMatch && roomsMatch && budgetMatch){
                 card.show();
-            } else {
+            }else {
                 card.hide();
             }
         });
