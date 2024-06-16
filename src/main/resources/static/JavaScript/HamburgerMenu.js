@@ -1,4 +1,3 @@
-// scripts.js
 document.addEventListener('DOMContentLoaded', function () {
     const menuBtn = document.getElementById('menuBtn');
     const sideMenu = document.getElementById('sideMenu');
@@ -25,7 +24,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Toggle filtering options when hamburger icon is clicked
-
-// Additional CSS to prevent scrolling when menu is open
 

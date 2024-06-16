@@ -17,9 +17,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         $('.card').each(function() {
             let card = $(this);
+
+            // skip filtering for the vertical card to contact
+            if (card.attr('id') === 'vcard1') {
+                return;
+            }
+
             let cardFindLocation = card.find('.card-subtitle').text();
             let cardFindPropertyType = card.find('.card-subtitle').text();
-            let cardFindStatus = card.find('.card-subtitle').text();
+            let cardFindStatus = card.find('.card-info').text();
             let cardFindRooms = card.find('.card-text').text();
             let cardFindBudget = parseInt(card.find('.card-text').text().replace('$', ''));
 
@@ -54,26 +60,4 @@ document.addEventListener('DOMContentLoaded', function() {
         $('.card').show();
         $('.select2').val(null).trigger('change');
     });
-
-    // Access the JSON data from the model
-    var jsonProperties = document.getElementById('jsonProperties').textContent;
-    var properties = JSON.parse(jsonProperties);
-
-    var uniqueCities = [...new Set(properties.map(p => p.city))];
-    var uniquePropertyTypes = [...new Set(properties.map(p => p.type))];
-    var uniqueStatus = [...new Set(properties.map(p => p.listingstatus))];
-    var uniqueRooms = [...new Set(properties.map(p => p.room))].sort((a, b) => a - b).map(room => `${room} Rooms`);
-    var uniqueBudgets = [...new Set(properties.map(p => p.rPrice))].map(price => `$${price}`);
-
-    function setOptions(selectId, options, defaultOption) {
-        var select = document.getElementById(selectId);
-        select.innerHTML = `<option disabled selected value="">${defaultOption}</option>` +
-            options.map(option => `<option value="${option}">${option}</option>`).join('');
-    }
-
-    setOptions('location', uniqueCities, 'Select a Location');
-    setOptions('propertyType', uniquePropertyTypes, 'Select a Property Type');
-    setOptions('status', uniqueStatus, 'Status');
-    setOptions('rooms', uniqueRooms, 'Select Rooms');
-    setOptions('budget', uniqueBudgets, 'Budget');
 });

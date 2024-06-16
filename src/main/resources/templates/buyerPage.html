@@ -77,6 +77,15 @@
                 <option disabled selected  value="">Budget</option>
             </select>
 
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+                var jsonPropertiesBuyer = /*[[${jsonProperties}]]*/ '';
+                /*]]>*/
+            </script>
+
+            <!-- Calling the dropdown function to populate options -->
+            <script th:src="@{/JavaScript/DropdownSelection.js}" th:inline="none"></script>
+
             <!-- Button -->
             <button class="reset-btn button-search btn btn-outline-secondary col-lg-1 col-3" id="resetButton" name="Reset"
                     type="button">Reset
@@ -145,59 +154,14 @@
                 <div class="container" id="properties-container">
                     <!--Cards dynamically set here-->
                 </div>
+
                 <script th:inline="javascript">
                     /*<![CDATA[*/
-                    // Access the JSON data from the model
-                    const jsonProperties = /*[[${jsonProperties}]]*/ '';
-
-                    // Parse the JSON string to JavaScript object
-                    const properties = JSON.parse(jsonProperties);
-
-                    // Get the container element where cards will be added
-                    const container = document.getElementById('properties-container');
-
-                    // Iterate over properties and create card elements
-                    let cardsHTML = '';
-                    properties.forEach(function(property) {
-                        cardsHTML += `
-                        <div class="card mb-3">
-                            <div class="row g-0">
-                                <div class="col-md-6">
-                                    <img src="/Images/apartment1.jpg" class="img-fluid rounded-start" alt="Property Image">
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card-body">
-                                        <h5 class="card-title pb-2">Real-Estate Nr.: ${property.id}</h5>
-                                        <div class="location-container d-flex align-items-center pb-2">
-                                            <img src="/Images/location_icon.png" class="img-fluid rounded-start" alt="Location Icon">
-                                            <h6 class="card-subtitle text-body-secondary">${property.city} (${property.propertyType})</h6>
-                                        </div>
-                                        <p class="card-info">Country: ${property.country}</p>
-                                        <p class="card-info">Address: ${property.address}</p>
-                                        <p class="card-info status">Status: ${property.listingStatus}</p>
-                                        <div class="row-card-properties d-flex justify-content-between align-items-center">
-                                            <div class="col-md-3">
-                                                <p class="card-text">$${property.rentalPrice}</p>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <p class="card-text">${property.squareFootage}m²</p>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <p class="card-text">${property.rooms} Rooms</p>
-                                            </div>
-                                            <div class="col-md-3 button-contact-center">
-                                                <button class="contact-btn btn btn-outline-secondary" data-bs-target="#contact" data-bs-toggle="modal" type="submit">Contact</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`;
-                    });
-
-                    container.innerHTML = cardsHTML;
+                    var jsonProperties = /*[[${jsonProperties}]]*/ '';
                     /*]]>*/
                 </script>
+
+                <script th:src="@{/JavaScript/GenerateCards.js}" th:inline="none"></script>
             </div>
             <!-- Vertical Card -->
             <div class="vertical-card scrollable-container container-fluid col-md-4 p-0 g-0">

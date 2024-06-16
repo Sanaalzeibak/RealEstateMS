@@ -16,11 +16,12 @@ $(document).ready(function() {
                 card.style.display = 'none';
             }
         });
-
     }
+
     // Pagination
     function updatePagination(currentPage = 1) {
         const pagination = document.getElementById('pagination');
+        const totalPages = Math.ceil(cards.length / cardsPerPage); // Moved inside to recalculate on reset
 
         // Clear existing pagination links
         pagination.innerHTML = '';
@@ -28,10 +29,6 @@ $(document).ready(function() {
         ul.setAttribute('class', 'pagination container d-flex');
 
         // Generate new pagination links
-        let hasNextPage = false;
-        let hasPreviousPage = false;
-
-        // Loop through pages
         for (let i = 1; i <= totalPages; i++) {
             const link = document.createElement('a');
             link.className = 'page-link';
@@ -53,7 +50,6 @@ $(document).ready(function() {
 
     // Initial page load
     const cards = Array.from(dataContainer.getElementsByClassName('card'));
-    const totalPages = Math.ceil(cards.length / cardsPerPage);
     updatePagination(currentPage);
 
     // Event listener for pagination
@@ -64,7 +60,11 @@ $(document).ready(function() {
         }
     });
 
+    // Reset button click event
+    $('#resetButton').on('click', function() {
+        $('.card').show();
+        $('.select2').val(null).trigger('change');
+        currentPage = 1;
+        updatePagination(currentPage);
+    });
 });
-
-
-
