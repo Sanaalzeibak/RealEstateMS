@@ -19,15 +19,14 @@ p {
     flex-direction: column;
     justify-content: center;
     margin-left: 5rem;
-    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 6px;
     color: #fff;
 }
 
-.start-text{
-    padding: 1rem;
-}
 
+.start-text{
+    display: none;
+}
 .get-started{
     margin: auto;
     color: #fff;
@@ -37,8 +36,13 @@ p {
 .get-started button{
     color: #fff;
     border-color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
 }
-
+.get-started button:hover{
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.8s ease-in-out;
+}
 .navbar{
     padding-bottom: 10%;
 }
@@ -357,6 +361,7 @@ h6{
     margin-bottom: 1rem;
 }
 @media (min-width: 992px) {
+    font-size: medium;
     .select2-container{
         margin-bottom: 0;
     }
@@ -427,15 +432,25 @@ h6{
         transition: none;
         opacity: 1;
     }
+    .start-text{
+        display: flex;
+        padding: 1rem;
+    }
+     .start-container{
+        background-color: rgba(0, 0, 0, 0.5);
+     }
+
 }
 
-@media (min-width: 992px) {
-    font-size: medium;
-}
+
 @media (min-width: 1200px) {
     .contact-btn{
         display:none;
     }
+    .start-container .start-text{
+        font-size: larger;
+    }
+
 }
 
 

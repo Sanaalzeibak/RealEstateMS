@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 budgetMatch = !isNaN(cardFindBudget) && cardFindBudget >= minBudget && cardFindBudget <= maxBudget;
             }
 
-            if (locationMatch && propertyTypeMatch && statusMatch && roomsMatch && budgetMatch) {
+            if (locationMatch && propertyTypeMatch && statusMatch && roomsMatch && budgetMatch){
                 card.show();
-            } else {
+            }else {
                 card.hide();
             }
         });
