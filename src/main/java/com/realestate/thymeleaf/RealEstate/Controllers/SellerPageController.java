@@ -41,7 +41,7 @@ public class SellerPageController {
         this.propertyRepository = propertyRepository;
     }
 
-    @GetMapping("/SellerPage")
+    @GetMapping("/sellerPage")
     public String getProperties(Model model){
         List<PropertyData> properties = propertyRepository.findAll();
         Gson gson = new Gson();

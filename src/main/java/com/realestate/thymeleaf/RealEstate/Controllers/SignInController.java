@@ -26,7 +26,7 @@ public class SignInController {
     public SignInController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-    @GetMapping("/SignIn")
+    @GetMapping("/signIn")
     public String getUsers(Model model) {
         List<UserData> users = userRepository.findAll();
         Gson gson = new Gson();
@@ -40,7 +40,7 @@ public class SignInController {
         return "success";  // returns the name of the success view template (success.html)
     }
 
-    @PostMapping("/SignIn")
+    @PostMapping("/signIn")
     public String saveUser(@ModelAttribute UserData user) {
         userRepository.save(user);
         return "redirect:/success";  // Redirect to a success page or the desired page
