@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let regexPropertyType = new RegExp(selectPropertyType, 'gi');
         let regexStatus = new RegExp(selectStatus, 'gi');
         let regexRooms = new RegExp(selectRooms, 'gi');
-        const verticalCard = document.getElementById('vertical-card');
+
         $('.card').each(function() {
             let card = $(this);
             let cardFindLocation = card.find('.card-subtitle').text();
