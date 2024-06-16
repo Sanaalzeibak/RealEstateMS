@@ -182,10 +182,10 @@
                 var properties = JSON.parse(jsonProperties);
 
                 var uniqueCities = [...new Set(properties.map(p => p.city))];
-                var uniquePropertyTypes = [...new Set(properties.map(p => p.type))];
-                var uniqueStatus = [...new Set(properties.map(p => p.listingstatus))];
-                var uniqueRooms = [...new Set(properties.map(p => p.room))].sort((a, b) => a - b).map(room => `${room} Rooms`);
-                var uniqueBudgets = [...new Set(properties.map(p => p.rPrice))].map(price => `$${price}`);
+                var uniquePropertyTypes = [...new Set(properties.map(p => p.propertyType))];
+                var uniqueStatus = [...new Set(properties.map(p => p.listingStatus))];
+                var uniqueRooms = [...new Set(properties.map(p => p.rooms))].sort((a, b) => a - b).map(rooms => `${rooms} Rooms`);
+                var uniqueBudgets = [...new Set(properties.map(p => p.rentalPrice))].map(price => `$${price}`);
 
                 function setOptions(selectId, options, defaultOption) {
                     var select = document.getElementById(selectId);
