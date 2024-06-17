@@ -13,5 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // (Howard) hier kannst du deinen Code setzen
         // Output siehst du mit F12 im Browser (Development Tool für HTML)
+        
     });
 });
