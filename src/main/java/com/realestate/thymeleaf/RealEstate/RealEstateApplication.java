@@ -14,11 +14,8 @@ import java.sql.Statement;
 
 @SpringBootApplication
 public class RealEstateApplication {
-	@Autowired
-	private PropertyDataStorage propertyDataStorage;
 
-	@Autowired
-	private UserDataStorage userDataStorage;
+
 	public static void main(String[] args) {
 		SpringApplication.run(RealEstateApplication.class, args);
 	}
