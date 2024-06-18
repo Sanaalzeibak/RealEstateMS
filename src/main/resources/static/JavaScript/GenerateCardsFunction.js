@@ -1,6 +1,7 @@
 /*<![CDATA[*/
-// Function to fetch random image from Unsplash API with specific dimensions
+// Function to randomly get images from the Unsplash API
 async function fetchRandomImage() {
+    // Set the Key and properties that
     const apiKey = "7nQ9HYoAbyT-q5_NATX7MiRYH2-oYnJSCXAmLL9Ibq4";
     const category = "house,home exterior,property,estate";
     const width = 540;
@@ -13,8 +14,9 @@ async function fetchRandomImage() {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
-        const imageUrl = `${data.urls.raw}&w=${width}&h=${height}&fit=crop`; // Constructing the image URL with specific dimensions
-        return imageUrl;
+
+         // Constructing the image URL with specific dimensions
+        return `${data.urls.raw}&w=${width}&h=${height}&fit=crop`;
     } catch (error) {
         console.error('Error fetching image:', error);
         // Default image URL in case of error
@@ -22,20 +24,23 @@ async function fetchRandomImage() {
     }
 }
 
-// Access the JSON data from the model (assuming it's already populated)
-var properties = JSON.parse(jsonProperties);
+// Access the JSON data from the model
+const properties = JSON.parse(jsonProperties);
 
 // Get the container element where cards will be added
-var container = document.getElementById('properties-container');
+const container = document.getElementById('properties-container');
 
 // Function to generate cards HTML
 async function generateCardsHTML() {
-    var cardsHTML = '';
+    // Pass cards in the string
+    let cardsHTML = '';
+
+    // Iterating through every property
     for (const property of properties) {
         // Fetch a random image URL with specific dimensions
         const imageUrl = await fetchRandomImage();
 
-        // Generate card HTML with fetched image URL
+        // Building dynamic card for the amount of dataset within the properties
         cardsHTML += `
             <div class="card mb-3">
                 <div class="row g-0">
@@ -74,7 +79,7 @@ async function generateCardsHTML() {
     return cardsHTML;
 }
 
-// Function to save generated cards HTML to localStorage
+// Save Cards to local storage
 async function saveCardsToLocalStorage() {
     try {
         const cardsHTML = await generateCardsHTML();
@@ -85,7 +90,7 @@ async function saveCardsToLocalStorage() {
     }
 }
 
-// Function to render cards from localStorage if available
+// Get cards from the local storage
 function renderCardsFromLocalStorage() {
     const savedCards = localStorage.getItem('propertyCards');
     if (savedCards) {

@@ -59,7 +59,7 @@
                                         <img class="" alt="Icon" src="/Images/username.png">
                                     </span>
                                     <label>
-                                        <input id="emailInput" class="form-control custom-input " placeholder="E-Mail-Address" type="text">
+                                        <input id="usernameInput" class="form-control custom-input " placeholder="Username" type="text">
                                     </label>
                                 </div>
                                 <div class="mb-3 container d-flex col-12">
@@ -82,6 +82,15 @@
                     </div>
                 </div>
             </div>
+
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+                var jsonProperties = /*[[${jsonProperties}]]*/ '';
+                /*]]>*/
+            </script>
+
+            <!-- Calling the dropdown function to populate options -->
+            <script th:src="@{/JavaScript/SignInData.js}" th:inline="none"></script>
         </div>
     </nav>
     <div class="row d-flex align-items-center justify-content-center col-12">
@@ -139,7 +148,7 @@
 <!-- Bootstrap JavaScript (required for toggling the collapsed navbar) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="/JavaScript/ButtonFunctions.js"></script>
+<script src="/JavaScript/FilteringFunction.js"></script>
 <script src="/JavaScript/HamburgerMenu.js"></script>
 <script src="/JavaScript/SignInData.js"></script>
 <script src="/JavaScript/RadioButtonFunction.js"></script>

@@ -74,14 +74,14 @@
                         <div class="row">
                             <form class="col-md-6">
                                 <div class="form-group">
-                                    <label class="p-2" for="Vorname">Vorname*</label>
-                                    <input class="form-control" id="VornameA" placeholder="Vorname" type="text">
+                                    <label id="firstNameApartment" class="p-2">First Name*</label>
+                                    <input class="form-control" id="VornameA" placeholder="First Name" type="text">
                                 </div>
                             </form>
                             <form class="col-md-6">
                                 <div class="form-group">
-                                    <label class="p-2" for="Nachname">Nachname*</label>
-                                    <input class="form-control" id="NachnameA" placeholder="Nachname"
+                                    <label id="lastNameApartment" class="p-2">Last Name*</label>
+                                    <input class="form-control" id="NachnameA" placeholder="Last Name"
                                            type="text">
                                 </div>
                             </form>
@@ -89,17 +89,8 @@
                         <div class="row">
                             <form class="col-md-12">
                                 <div class="form-group">
-                                    <label class="p-2" >Email*</label>
-                                    <input class="form-control" id="EmailA" placeholder="example@gmail.com"
-                                           type="text">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="row">
-                            <form class="col-md-12">
-                                <div class="form-group">
-                                    <label class="p-2" >Phone number*</label>
-                                    <input class="form-control" id="phoneNum" placeholder="+49 1234 567891"
+                                    <label id="apartmentType" class="p-2" >Apartment Type*</label>
+                                    <input class="form-control" placeholder="Enter Apartment Type"
                                            type="text">
                                 </div>
                             </form>
@@ -107,13 +98,13 @@
                         <div class="row">
                             <form class="col-md-6">
                                 <div class="form-group">
-                                    <label class="p-2" for="Street">Street name*</label>
+                                    <label id="addressNameApartment" class="p-2" for="Street">Address name*</label>
                                     <input class="form-control" id="Street" placeholder="" type="text">
                                 </div>
                             </form>
                             <form class="col-md-6">
                                 <div class="form-group">
-                                    <label class="p-2" >Apartment number*</label>
+                                    <label id="apartmentNumber" class="p-2" >Apartment number*</label>
                                     <input class="form-control" id="ApartNum" placeholder=""
                                            type="text">
                                 </div>
@@ -122,36 +113,52 @@
                         <div class="row">
                             <form class="col-md-6">
                                 <div class="form-group">
-                                    <label class="p-2">Postal code*</label>
+                                    <label id="roomsApartment" class="p-2">Rooms*</label>
                                     <input class="form-control" id="Code" placeholder="" type="text">
                                 </div>
                             </form>
                             <form class="col-md-6">
                                 <div class="form-group">
-                                    <label class="p-2">City*</label>
+                                    <label id="cityApartment" class="p-2">City*</label>
                                     <input class="form-control" id="City" placeholder=""
                                            type="text">
                                 </div>
                             </form>
                         </div>
-                        <div class="row pb-4">
-                            <form class="col-md-12">
+                        <div class="row">
+                            <form class="col-md-6">
                                 <div class="form-group">
-                                    <label class="p-2" for="Nachricht">Ihre Nachricht </label>
-                                    <input class="form-control contact-message" id=""
-                                           placeholder="Nachricht"
+                                    <label id="priceApartment" class="p-2" >Price*</label>
+                                    <input class="form-control" placeholder="Enter Price"
+                                           type="text">
+                                </div>
+                            </form>
+                            <form class="col-md-6">
+                                <div class="form-group">
+                                    <label id="squareFootage" class="p-2" >SquareFootage*</label>
+                                    <input class="form-control" placeholder="Enter Square Footage"
                                            type="text">
                                 </div>
                             </form>
                         </div>
+                            <form class="col-md-12">
+                                <div class="form-group">
+                                    <label id="messageApartment" class="p-2" for="Nachricht">Your message </label>
+                                    <input class="form-control contact-message"
+                                           placeholder="Message"
+                                           type="text">
+                                </div>
+                            </form>
                     </div>
                     <div class="modal-footer container d-flex justify-content-center p-0">
-                        <button class="log-in btn btn-outline-secondary px-5 mb-3" type="submit">Contact us</button>
+                        <button id="addApartmentCard" type="button" class="log-in btn btn-outline-secondary" data-bs-dismiss="modal">Add Apartment</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="cardsContainer" class="container mt-4"></div>
 
     <!-- Filtering -->
     <div class="pb-3">
@@ -182,8 +189,7 @@
                 /*]]>*/
             </script>
 
-            <!-- Calling the dropdown function to populate options -->
-            <script th:src="@{/JavaScript/DropdownSelection.js}" th:inline="none"></script>
+            <script th:src="@{/JavaScript/DropdownSelectionFunction.js}" th:inline="none"></script>
 
             <!-- Button -->
             <button class="reset-btn button-search btn btn-outline-secondary col-lg-1 col-3" id="resetButton" name="Reset"
@@ -260,7 +266,7 @@
                     /*]]>*/
                 </script>
 
-                <script th:src="@{/JavaScript/GenerateCards.js}" th:inline="none"></script>
+                <script th:src="@{/JavaScript/GenerateCardsFunction.js}" th:inline="none"></script>
 
             </div>
             <!-- Vertical Card -->
@@ -368,10 +374,10 @@
 <!-- JavaScript Script -->
 <!-- Bootstrap JavaScript (required for toggling the collapsed navbar) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="/JavaScript/Pagination.js"></script>
-<script src="/JavaScript/ButtonFunctions.js"></script>
+<script src="/JavaScript/FilteringFunction.js"></script>
 <script src="/JavaScript/SoldOut.js"></script>
+<script src="/JavaScript/AddNewApartment.js"></script>
 <script src="/JavaScript/HamburgerMenu.js"></script>
 <script src="/JavaScript/RadioButtonFunction.js"></script>
 <!-- Links to Bootstrap assets -->
