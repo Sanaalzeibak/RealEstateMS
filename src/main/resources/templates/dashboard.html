@@ -85,12 +85,35 @@
 
             <script th:inline="javascript">
                 /*<![CDATA[*/
-                var jsonProperties = /*[[${jsonProperties}]]*/ '';
+                const jsonUsersCredentials = /*[[${userCredentials}]]*/ '';
+
+                const users = JSON.parse(jsonUsersCredentials);
+
+                const usernameInput = document.getElementById('usernameInput');
+                const passwordInput = document.getElementById('passwordInput');
+                const submitButton = document.getElementById('submitButton');
+
+                submitButton.addEventListener('click', function() {
+                    const usernameValue = usernameInput.value;
+                    const passwordValue = passwordInput.value;
+
+                    const userIndex = users.findIndex(user => user.username === usernameValue);
+
+                    if(userIndex !== -1 && users[userIndex].password === passwordValue) {
+                        window.location.href = users[userIndex].role + "Page";
+                        console.log("Found at Index: ", userIndex);
+                    } else {
+                        usernameInput.classList.add('shake');
+                        passwordInput.classList.add('shake');
+
+                        setTimeout(() => {
+                            usernameInput.classList.remove('shake');
+                            passwordInput.classList.remove('shake');
+                        }, 500);
+                    }
+                });
                 /*]]>*/
             </script>
-
-            <!-- Calling the dropdown function to populate options -->
-            <script th:src="@{/JavaScript/SignInData.js}" th:inline="none"></script>
         </div>
     </nav>
     <div class="row d-flex align-items-center justify-content-center col-12">
