@@ -101,7 +101,8 @@
 
                     if(userIndex !== -1 && users[userIndex].password === passwordValue) {
                         window.location.href = users[userIndex].role + "Page";
-                        console.log("Found at Index: ", userIndex);
+                        usernameValue.value = '';
+                        passwordValue.value = '';
                     } else {
                         usernameInput.classList.add('shake');
                         passwordInput.classList.add('shake');
@@ -173,7 +174,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="/JavaScript/FilteringFunction.js"></script>
 <script src="/JavaScript/HamburgerMenu.js"></script>
-<script src="/JavaScript/SignInData.js"></script>
 <script src="/JavaScript/RadioButtonFunction.js"></script>
 <!-- Links to Bootstrap assets -->
 <script crossorigin="anonymous"

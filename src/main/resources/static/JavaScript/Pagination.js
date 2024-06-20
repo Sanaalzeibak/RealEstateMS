@@ -26,7 +26,7 @@ $(document).ready(function() {
         // Clear existing pagination links
         pagination.innerHTML = '';
         const ul = document.createElement('ul');
-        ul.setAttribute('class', 'pagination container d-flex');
+        ul.setAttribute('class', 'pagination container');
 
         // Generate new pagination links
         for (let i = 1; i <= totalPages; i++) {

@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize Select2 for the html select tag
     $('.select2').select2();
+    let pagination = document.getElementById('pagination');
 
     // Function to filter cards
     function filterCards() {
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (locationMatch && propertyTypeMatch && statusMatch && roomsMatch && budgetMatch) {
                 card.show();
             } else {
+                pagination.style.visibility = "hidden";
                 card.hide();
             }
         });
@@ -62,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Reset button click event
     $('#resetButton').on('click', function() {
+        pagination.style.visibility = "visible";
         $('.card').show();
         $('.select2').val(null).trigger('change');
     });

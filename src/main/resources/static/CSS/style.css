@@ -11,6 +11,9 @@ p {
     text-decoration: none;
     color: unset;
 }
+.hide{
+    display: none;
+}
 .account{
     text-decoration: none;
 }
@@ -73,7 +76,7 @@ p {
 
 .dashboard{
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background-image: url('../Images/background_dashboard.jpg');
     background-size: cover;
     background-position: center;
