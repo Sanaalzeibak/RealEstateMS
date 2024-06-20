@@ -11,6 +11,9 @@ p {
     text-decoration: none;
     color: unset;
 }
+.hide{
+    display: none;
+}
 .account{
     text-decoration: none;
 }
