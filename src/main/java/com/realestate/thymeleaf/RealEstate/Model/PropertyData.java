@@ -61,5 +61,8 @@ public class PropertyData {
 
     }
 
+    public Long getId() {
+        return id;
+    }
 
 }
