@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Reset button click event
     $('#resetButton').on('click', function() {
         pagination.style.visibility = "visible";
+        $('#firstName, #lastName, #message, #email').val('')
         $('.card').show();
         $('.select2').val(null).trigger('change');
     });
