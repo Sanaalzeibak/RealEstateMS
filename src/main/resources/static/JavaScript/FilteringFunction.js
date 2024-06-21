@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const regexPropertyType = createRegex(selectPropertyType);
         const regexStatus = createRegex(selectStatus);
         const regexRooms = createRegex(selectRooms);
-        const regexBudget = createRegex(selectBudget);
+        const regexBudget = createBudgetRegex(selectBudget);
 
         // Now we look for all cards available in the HTML
         $('.card').each(function() {
@@ -55,6 +55,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Creating the Regex
     function createRegex(value) {
         return new RegExp(value, 'gi');
+    }
+
+    // Creating the Regex for budget
+    function createBudgetRegex(value) {
+        if (!value) return new RegExp('');
+        const escapedValue = value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        return new RegExp(`\\$?${escapedValue}(\\.\\d{2})?`, 'gi');
     }
 
     // Event listeners for the dropdowns
