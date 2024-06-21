@@ -74,14 +74,14 @@
                         <div class="row">
                             <form class="col-md-6">
                                 <div class="form-group">
-                                    <label id="firstNameApartment" class="p-2">First Name*</label>
-                                    <input class="form-control" id="VornameA" placeholder="First Name" type="text">
+                                    <label class="p-2">First Name*</label>
+                                    <input class="form-control" id="addFirstName" placeholder="First Name" type="text">
                                 </div>
                             </form>
                             <form class="col-md-6">
                                 <div class="form-group">
-                                    <label id="lastNameApartment" class="p-2">Last Name*</label>
-                                    <input class="form-control" id="NachnameA" placeholder="Last Name"
+                                    <label class="p-2">Last Name*</label>
+                                    <input class="form-control" id="addLastName" placeholder="Last Name"
                                            type="text">
                                 </div>
                             </form>
@@ -89,8 +89,8 @@
                         <div class="row">
                             <form class="col-md-12">
                                 <div class="form-group">
-                                    <label id="apartmentType" class="p-2" >Apartment Type*</label>
-                                    <input class="form-control" placeholder="Enter Apartment Type"
+                                    <label class="p-2" >Apartment Type*</label>
+                                    <input class="form-control" id="addApartmentType" placeholder="Enter Apartment Type"
                                            type="text">
                                 </div>
                             </form>
@@ -98,14 +98,14 @@
                         <div class="row">
                             <form class="col-md-6">
                                 <div class="form-group">
-                                    <label id="addressNameApartment" class="p-2" for="Street">Address name*</label>
-                                    <input class="form-control" id="Street" placeholder="" type="text">
+                                    <label class="p-2">Address name*</label>
+                                    <input class="form-control" id="addAddressName" placeholder="" type="text">
                                 </div>
                             </form>
                             <form class="col-md-6">
                                 <div class="form-group">
-                                    <label id="apartmentNumber" class="p-2" >Apartment number*</label>
-                                    <input class="form-control" id="ApartNum" placeholder=""
+                                    <label class="p-2" >Apartment number*</label>
+                                    <input class="form-control" id="addApartmentNumber" placeholder=""
                                            type="text">
                                 </div>
                             </form>
@@ -113,14 +113,14 @@
                         <div class="row">
                             <form class="col-md-6">
                                 <div class="form-group">
-                                    <label id="roomsApartment" class="p-2">Rooms*</label>
-                                    <input class="form-control" id="Code" placeholder="" type="text">
+                                    <label class="p-2">Rooms*</label>
+                                    <input class="form-control" id="addRooms" placeholder="" type="text">
                                 </div>
                             </form>
                             <form class="col-md-6">
                                 <div class="form-group">
-                                    <label id="cityApartment" class="p-2">City*</label>
-                                    <input class="form-control" id="City" placeholder=""
+                                    <label class="p-2">City*</label>
+                                    <input class="form-control" id="addCity" placeholder=""
                                            type="text">
                                 </div>
                             </form>
@@ -128,24 +128,23 @@
                         <div class="row">
                             <form class="col-md-6">
                                 <div class="form-group">
-                                    <label id="priceApartment" class="p-2" >Price*</label>
-                                    <input class="form-control" placeholder="Enter Price"
+                                    <label class="p-2" >Price*</label>
+                                    <input class="form-control" id="addPrice" placeholder="Enter Price"
                                            type="text">
                                 </div>
                             </form>
                             <form class="col-md-6">
                                 <div class="form-group">
-                                    <label id="squareFootage" class="p-2" >SquareFootage*</label>
-                                    <input class="form-control" placeholder="Enter Square Footage"
+                                    <label class="p-2" >SquareFootage*</label>
+                                    <input class="form-control" id="addSquareFootage" placeholder="Enter Square Footage"
                                            type="text">
                                 </div>
                             </form>
                         </div>
                             <form class="col-md-12">
                                 <div class="form-group">
-                                    <label id="messageApartment" class="p-2" for="Nachricht">Your message </label>
-                                    <input class="form-control contact-message"
-                                           placeholder="Message"
+                                    <label class="p-2" for="Message">Your message </label>
+                                    <input class="form-control contact-message" id="addMessage" placeholder="Message"
                                            type="text">
                                 </div>
                             </form>
@@ -217,13 +216,13 @@
                                 <div class="row">
                                     <form class="col-md-6">
                                         <div class="form-group">
-                                            <label class="p-2" for="Vorname">Vorname*</label>
+                                            <label class="p-2" for="firstName">Vorname*</label>
                                             <input class="form-control" id="VornameC" placeholder="Vorname" type="text">
                                         </div>
                                     </form>
                                     <form class="col-md-6">
                                         <div class="form-group">
-                                            <label class="p-2" for="Nachname">Nachname*</label>
+                                            <label class="p-2" for="lastName">Nachname*</label>
                                             <input class="form-control" id="NachnameC" placeholder="Nachname"
                                                    type="text">
                                         </div>
@@ -241,7 +240,7 @@
                                 <div class="row pb-4">
                                     <form class="col-md-12">
                                         <div class="form-group">
-                                            <label class="p-2" for="Nachricht">Ihre Nachricht </label>
+                                            <label class="p-2" for="message">Ihre Nachricht </label>
                                             <input class="form-control contact-message" id="NachrichtC"
                                                    placeholder="Nachricht"
                                                    type="text">
@@ -321,7 +320,7 @@
                                 </form>
                             </div>
                             <div class="row justify-content-center ">
-                                <button class="btn btn-outline-secondary col-md-4 " type="button">Absenden</button>
+                                <button class="btn btn-outline-secondary col-md-4 " type="button">Contact</button>
                             </div>
                         </div>
                     </div>
