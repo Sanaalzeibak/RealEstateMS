@@ -60,6 +60,8 @@ $(document).ready(function() {
         }
     });
 
+    $('#location, #propertyType, #status, #rooms, #budget')
+
     // Reset button click event
     $('#resetButton').on('click', function() {
         $('.card').show();
