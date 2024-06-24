@@ -68,7 +68,7 @@ async function generateCardsHTML() {
                                     <p class="card-text">${property.rooms} Rooms</p>
                                 </div>
                                 <div class="col-md-3">
-                                    <button class="contact-btn btn btn-outline-secondary" data-bs-target="#contact" data-bs-toggle="modal" type="submit">Contact</button>
+                                    <button class="contact-btn btn btn-outline-secondary" data-bs-target="#contact" data-bs-toggle="modal" type="submit">Rent</button>
                                 </div>
                             </div>
                         </div>

@@ -112,6 +112,7 @@ p {
 
 .modal-footer {
     border: none;
+    padding-bottom: 1rem;
 }
 .create-account{
     font-size:12px;
@@ -144,7 +145,7 @@ p {
     justify-content: space-between;
     height: 100%;
 }
-.vertical-card {
+.scrollable-container{
     display: none;
 }
 .horizontal-card{
@@ -153,7 +154,7 @@ p {
     flex-direction: column;
 }
 @media (min-width: 1200px) {
-    .vertical-card {
+    .scrollable-container{
         display: block;
     }
 
