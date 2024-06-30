@@ -72,7 +72,7 @@ async function generateCardHTML(property) {
         </div>`;
 }
 
-// Save individual card to local storage
+// Saving for individual cards
 async function saveCardToLocalStorage(property) {
     try {
         const cardHTML = await generateCardHTML(property);
@@ -85,14 +85,14 @@ async function saveCardToLocalStorage(property) {
 
 // Synchronize local storage with the current properties
 async function syncLocalStorageWithProperties() {
-    const propertyIds = properties.map(property => property.id);
-    const savedKeys = Object.keys(localStorage).filter(key => key.startsWith('propertyCard-'));
+    const propertyIds = properties.map(property => property.id); // retrieve id
+    const savedKeys = Object.keys(localStorage).filter(k => k.startsWith('propertyCard-'));
 
     // Remove cards from local storage that are not in the current properties
-    savedKeys.forEach(key => {
-        const propertyId = parseInt(key.replace('propertyCard-', ''), 10);
+    savedKeys.forEach(k => {
+        const propertyId = parseInt(k.replace('propertyCard-', ''), 10);
         if (!propertyIds.includes(propertyId)) {
-            localStorage.removeItem(key);
+            localStorage.removeItem(k);
             console.log(`Property card ${propertyId} removed from localStorage.`);
         }
     });
@@ -107,10 +107,10 @@ async function syncLocalStorageWithProperties() {
 
 // Render cards from the local storage
 function renderCardsFromLocalStorage() {
-    const savedKeys = Object.keys(localStorage).filter(key => key.startsWith('propertyCard-'));
+    const savedKeys = Object.keys(localStorage).filter(k => k.startsWith('propertyCard-')); // retrieves keys from local storage
     if (savedKeys.length > 0) {
-        savedKeys.forEach(key => {
-            container.innerHTML += localStorage.getItem(key);
+        savedKeys.forEach(k => {
+            container.innerHTML += localStorage.getItem(k);
         });
     } else {
         // If no saved cards found, generate and save new ones
