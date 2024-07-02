@@ -26,6 +26,7 @@ public class SellerPageController {
         this.userService = userService;
     }
 
+    /*
     @GetMapping("/sellerPage")
     public String getProperties(Model model){
         List<PropertyData> properties = propertyRepository.findAll();
@@ -33,16 +34,16 @@ public class SellerPageController {
         String jsonProperties = gson.toJson(properties);
         model.addAttribute("jsonProperties",jsonProperties);
         return "sellerPage";
-    }
+    }*/
 
-    @GetMapping("/testSeller")
+    @GetMapping("/sellerPage")
     public String showSellerForm(Model model) {
         model.addAttribute("propertyData", new PropertyData());  // Initialize an empty PropertyData object for the form
-        return "testSeller";
+        return "sellerPage";
     }
 
 
-    @PostMapping("/testSeller")
+    @PostMapping("/sellerPage")
     public String addProperty(@ModelAttribute PropertyData propertyData, Model model) {
         try {
             // Save property
@@ -51,7 +52,7 @@ public class SellerPageController {
             return "successBuy";  // Replace with your success page name
         } catch (IllegalArgumentException e) {
             model.addAttribute("error", e.getMessage());
-            return "testSeller";  // Return to the form page if there's an error
+            return "sellerPage";  // Return to the form page if there's an error
         }
     }
 }

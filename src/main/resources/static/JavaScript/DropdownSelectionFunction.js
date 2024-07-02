@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    const properties = JSON.parse(jsonProperties);
+    const properties = JSON.parse(jsonPropertiesDS);
 
     // Pass the unique values to the array
     const uniqueCities = getUniqueValues(properties, 'city');

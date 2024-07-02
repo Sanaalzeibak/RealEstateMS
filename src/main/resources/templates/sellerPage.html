@@ -70,86 +70,93 @@
                         <button type="button" class="btn-close col-1" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <form class="col-md-6">
-                                <div class="form-group">
+                        <form th:action="@{/sellerPage}" th:object="${propertyData}" method="post">
+                            <div class="row">
+                                <div class="form-group col-md-6 ">
                                     <label class="p-2">First Name*</label>
-                                    <input class="form-control" id="addFirstName" placeholder="First Name" type="text" required>
+                                    <input class="form-control" id="addFirstName" placeholder="First Name"
+                                           type="text">
                                 </div>
-                            </form>
-                            <form class="col-md-6">
-                                <div class="form-group">
+                                <div class="form-group col-md-6 ">
                                     <label class="p-2">Last Name*</label>
                                     <input class="form-control" id="addLastName" placeholder="Last Name"
-                                           type="text" required>
+                                           type="text">
                                 </div>
-                            </form>
-                        </div>
-                        <div class="row">
-                            <form class="col-md-12">
-                                <div class="form-group">
-                                    <label class="p-2" >Apartment Type*</label>
-                                    <input class="form-control" id="addApartmentType" placeholder="Enter Apartment Type"
-                                           type="text" required>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-9">
+                                    <label class="p-2">Address*</label>
+                                    <input class="form-control" id="addAddressName" placeholder="" type="text"
+                                           th:field="*{address}">
                                 </div>
-                            </form>
-                        </div>
-                        <div class="row">
-                            <form class="col-md-6">
-                                <div class="form-group">
-                                    <label class="p-2">Address name*</label>
-                                    <input class="form-control" id="addAddressName" placeholder="Enter Address name" type="text" required>
+                                <div class="form-group col-md-3">
+                                    <label class="p-2">ZIP*</label>
+                                    <input class="form-control" id="zip" placeholder=""
+                                           type="text" th:field="*{zip}">
                                 </div>
-                            </form>
-                            <form class="col-md-6">
-                                <div class="form-group">
-                                    <label class="p-2" >Apartment number*</label>
-                                    <input class="form-control" id="addApartmentNumber" placeholder="Enter Apartment Number"
-                                           type="text" required>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="row">
-                            <form class="col-md-6">
-                                <div class="form-group">
-                                    <label class="p-2">Rooms*</label>
-                                    <input class="form-control" id="addRooms" placeholder="Enter Rooms" type="text" required>
-                                </div>
-                            </form>
-                            <form class="col-md-6">
-                                <div class="form-group">
+
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
                                     <label class="p-2">City*</label>
-                                    <input class="form-control" id="addCity" placeholder="Enter City"
-                                           type="text" required>
+                                    <input class="form-control" id="addCity" placeholder=""
+                                           type="text" th:field="*{city}">
                                 </div>
-                            </form>
-                        </div>
-                        <div class="row">
-                            <form class="col-md-6">
-                                <div class="form-group">
-                                    <label class="p-2" >Price*</label>
+                                <div class="form-group col-md-6">
+                                    <label class="p-2">Country*</label>
+                                    <input class="form-control" id="country" placeholder=""
+                                           type="text" th:field="*{country}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="p-2">Rooms*</label>
+                                    <input class="form-control" id="addRooms" placeholder="" type="text"
+                                           th:field="*{rooms}">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="p-2">Bathrooms*</label>
+                                    <input class="form-control" id="addBathrooms" placeholder="" type="text"
+                                           th:field="*{bathrooms}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="p-2">Property Type*</label>
+                                    <input class="form-control" id="addApartmentType"
+                                           placeholder="Enter Apartment Type"
+                                           type="text" th:field="*{propertyType}">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="p-2">Price*</label>
                                     <input class="form-control" id="addPrice" placeholder="Enter Price"
-                                           type="text" required>
+                                           type="text" th:field="*{rentalPrice}">
                                 </div>
-                            </form>
-                            <form class="col-md-6">
-                                <div class="form-group">
-                                    <label class="p-2" >SquareFootage*</label>
-                                    <input class="form-control" id="addSquareFootage" placeholder="Enter Square Footage"
-                                           type="text" required>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="p-2">SquareFootage*</label>
+                                    <input class="form-control" id="addSquareFootage"
+                                           placeholder="Enter Square Footage"
+                                           type="text" th:field="*{squareFootage}">
                                 </div>
-                            </form>
-                        </div>
-                            <form class="col-md-12">
-                                <div class="form-group">
-                                    <label class="p-2" for="Message">Your message </label>
-                                    <input class="form-control contact-message" id="addMessage" placeholder="Message"
-                                           type="text" required>
+                                <div class="form-group col-md-6">
+                                    <label class="p-2">Perimeter*</label>
+                                    <input class="form-control" id="perimeter"
+                                           placeholder="Enter Square Footage"
+                                           type="text" th:field="*{perimeter}">
                                 </div>
-                            </form>
-                    </div>
-                    <div class="modal-footer container d-flex justify-content-center p-0">
-                        <button id="addApartmentCard" type="button" class="log-in btn btn-outline-secondary" data-bs-dismiss="modal">Add Apartment</button>
+                            </div>
+                            <div class="form-group">
+                                <label class="p-2" for="Message">Your message </label>
+                                <input class="form-control contact-message" id="addMessage" placeholder="Message"
+                                       type="text">
+                            </div>
+                            <button id="addApartmentCard" type="submit" class="log-in btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">Add Property
+                            </button>
+                        </form>
+                        <pre th:text="${jsonProperties}"></pre>
                     </div>
                 </div>
             </div>
@@ -183,7 +190,7 @@
 
             <script th:inline="javascript">
                 /*<![CDATA[*/
-                var jsonProperties = /*[[${jsonProperties}]]*/ '';
+                var jsonPropertiesDS = /*[[${jsonProperties}]]*/ '';
                 /*]]>*/
             </script>
 
@@ -260,7 +267,7 @@
 
                 <script th:inline="javascript">
                     /*<![CDATA[*/
-                    var jsonProperties = /*[[${jsonProperties}]]*/ '';
+                    var jsonPropertiesGC = /*[[${jsonProperties}]]*/ '';
                     /*]]>*/
                 </script>
 

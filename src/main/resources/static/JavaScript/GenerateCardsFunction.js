@@ -25,7 +25,7 @@ async function fetchRandomImage() {
 }
 
 // Access the JSON data from the model
-const properties = JSON.parse(jsonProperties);
+const properties = JSON.parse(jsonPropertiesGC);
 
 // Get the container element where cards will be added
 const container = document.getElementById('properties-container');
