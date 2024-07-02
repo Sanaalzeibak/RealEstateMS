@@ -123,4 +123,33 @@ function renderCardsFromLocalStorage() {
     await syncLocalStorageWithProperties();
     renderCardsFromLocalStorage();
 })();
+
+document.addEventListener("DOMContentLoaded", () => {
+    function rentButton(event) {
+        event.preventDefault();
+
+        const cardElement = event.target.closest('.card'); // error
+
+        // Retrieve the property ID from the card element's ID
+        const propertyId = cardElement ? cardElement.id.replace('property-', '') : null;
+
+        if (propertyId) {
+            console.log(`Property ID: ${propertyId}`);
+        } else {
+            console.error('Property ID not found.');
+        }
+    }
+
+    // Add event listeners to all Rent buttons
+    function addRentButtonListeners() {
+        const rentButtons = document.querySelectorAll('#rent');
+        rentButtons.forEach(button => {
+            button.addEventListener('click', rentButton);
+        });
+    }
+
+    // Call the function to add event listeners
+    addRentButtonListeners();
+});
+
 /*]]>*/
