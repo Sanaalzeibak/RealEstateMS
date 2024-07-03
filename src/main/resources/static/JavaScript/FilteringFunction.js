@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize Select2 for the html select tag
     $('.select2').select2();
-    let pagination = document.getElementById('pagination');
 
     // Function to filter cards
     function filterCards() {
@@ -71,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Reset button click event
     $('#resetButton').on('click', function() {
+        let pagination = document.getElementById('pagination');
         pagination.style.visibility = "visible";
         $('#firstName, #lastName, #message, #email').val('')
         $('.card').show();
