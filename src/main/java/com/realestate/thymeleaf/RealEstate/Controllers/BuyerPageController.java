@@ -42,11 +42,24 @@ public class BuyerPageController {
     }
 
     @GetMapping("/BuyerPage")
-    public String getProperties(Model model){
+    public String showSellerForm(Model model) {
+        // Initialize an empty PropertyData object for the form
+        model.addAttribute("propertyData", new PropertyData());
+
+        // Load properties for jsonProperties, jsonPropertiesGC, and jsonPropertiesDS
         List<PropertyData> properties = propertyRepository.findAll();
         Gson gson = new Gson();
         String jsonProperties = gson.toJson(properties);
-        model.addAttribute("jsonProperties",jsonProperties);
+        String jsonPropertiesGC = gson.toJson(properties);
+        String jsonPropertiesDS = gson.toJson(properties);
+        String jsonContactProperties = gson.toJson(properties);
+
+        // Add these to the model
+        model.addAttribute("jsonProperties", jsonProperties);
+        model.addAttribute("jsonPropertiesGC", jsonPropertiesGC);
+        model.addAttribute("jsonPropertiesDS", jsonPropertiesDS);
+        model.addAttribute("jsonContactProperties", jsonContactProperties);
+
         return "buyerPage";
     }
 }

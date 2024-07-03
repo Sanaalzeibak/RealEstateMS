@@ -54,6 +54,16 @@
         </div>
     </div>
 
+    <!-- Initialize all Controllers needed for frontend -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var jsonProperties = /*[[${jsonProperties}]]*/ '[]';
+        var jsonPropertiesGC = /*[[${jsonPropertiesGC}]]*/ '[]';
+        var jsonPropertiesDS = /*[[${jsonPropertiesDS}]]*/ '[]';
+        var jsonContactProperties = /*[[${jsonContactProperties}]]*/ '[]'
+        /*]]>*/
+    </script>
+
     <!-- Filtering -->
     <div class="pb-3">
         <div class="filtering-box shadow-sm mb-4" id="filtering-box">
@@ -76,12 +86,6 @@
             <select class="form-select select2" id="budget" style="width: 200px;">
                 <option disabled selected  value="">Budget</option>
             </select>
-
-            <script th:inline="javascript">
-                /*<![CDATA[*/
-                var jsonPropertiesBuyer = /*[[${jsonProperties}]]*/ '';
-                /*]]>*/
-            </script>
 
             <!-- Calling the dropdown function to populate options -->
             <script th:src="@{/JavaScript/DropdownSelectionFunction.js}" th:inline="none"></script>
@@ -155,12 +159,6 @@
                     <!--Cards dynamically set here-->
                 </div>
 
-                <script th:inline="javascript">
-                    /*<![CDATA[*/
-                    var jsonProperties = /*[[${jsonProperties}]]*/ '';
-                    /*]]>*/
-                </script>
-
                 <script th:src="@{/JavaScript/GenerateCardsFunction.js}" th:inline="none"></script>
             </div>
             <!-- Vertical Card -->
@@ -219,12 +217,6 @@
                     </div>
                 </div>
             </div>
-
-            <script th:inline="javascript">
-                /*<![CDATA[*/
-                var jsonContactProperties = /*[[${jsonProperties}]]*/ '';
-                /*]]>*/
-            </script>
 
             <script th:src="@{/JavaScript/ContactDropdownFunction.js}" th:inline="none"></script>
         </div>
