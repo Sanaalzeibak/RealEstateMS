@@ -12,7 +12,13 @@ $(document).ready(function() {
             dropdown.append(option);
         });
     }
-
     populateCardDropdown();
+
+    $('#contactDropdown').on('change', function() {
+        const selectedOption = $(this).find('option:selected');
+        const selectedValue = selectedOption.val();
+        const selectedText = selectedOption.text();
+        document.getElementById('selectedOptionOutput').innerHTML = "Selected: " + selectedText;
+    });
 });
 /*]]>*/

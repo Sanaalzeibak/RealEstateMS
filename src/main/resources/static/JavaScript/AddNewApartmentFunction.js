@@ -17,25 +17,28 @@ document.addEventListener('DOMContentLoaded', function() {
         const validApartmentTypes = ["House", "Apartment", "Condominium", "Single Family House", "Multi Family House", "Penthouse"];
         if(!apartmentType.includes(validApartmentTypes)) {
             alert("Invalid apartment type. Please select a valid type!");
+            event.preventDefault();
         }
 
         if(isNaN(apartmentNumber) || apartmentNumber.trim() === "") {
             alert("Apartment number should be a number!");
+            event.preventDefault();
         }
 
         if(isNaN(rooms) || rooms.trim() === "") {
             alert("Rooms should be a valid number");
+            event.preventDefault();
         }
 
         if(isNaN(price) || price.trim() === "") {
             alert("Price should be a number");
+            event.preventDefault();
         }
 
         if(isNaN(squareFootage) || squareFootage.trim() === "") {
             alert("Square footage should be a valid number!");
+            event.preventDefault();
         }
-        */
-
-        console.log(firstName, lastName, apartmentType, addressName, apartmentNumber, rooms, city, price, squareFootage, message);
+         */
     });
 });

@@ -1,10 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if jsonProperties from Spring Boot is defined
-    if (typeof jsonProperties === 'undefined') {
-        console.error('jsonProperties is not defined');
-        return;
-    }
-
     const properties = JSON.parse(jsonPropertiesDS);
 
     // Pass the unique values to the array
