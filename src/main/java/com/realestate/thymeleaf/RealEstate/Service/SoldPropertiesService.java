@@ -45,7 +45,7 @@ public class SoldPropertiesService {
         soldPropertyRepository.save(soldProperties);
 
         // Update property status to "Sold" using custom repository method
-        propertyRepository.updateListingStatus(propertyId, "Rented");
+        propertyRepository.updateListingStatus(propertyId, "Sold");
     }
 }
 

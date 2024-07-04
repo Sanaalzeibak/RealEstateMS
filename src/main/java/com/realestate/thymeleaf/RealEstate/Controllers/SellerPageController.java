@@ -3,7 +3,6 @@ package com.realestate.thymeleaf.RealEstate.Controllers;
 import com.google.gson.Gson;
 import com.realestate.thymeleaf.RealEstate.Model.PropertyData;
 import com.realestate.thymeleaf.RealEstate.Repository.PropertyRepository;
-import com.realestate.thymeleaf.RealEstate.Service.SoldPropertiesService;
 import com.realestate.thymeleaf.RealEstate.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -19,13 +17,11 @@ import java.util.List;
 public class SellerPageController {
 
     private final PropertyRepository propertyRepository;
-    private final SoldPropertiesService soldPropertiesService;
     private final UserService userService;
 
     @Autowired
-    public SellerPageController(PropertyRepository propertyRepository, SoldPropertiesService soldPropertiesService, UserService userService) {
+    public SellerPageController(PropertyRepository propertyRepository, UserService userService) {
         this.propertyRepository = propertyRepository;
-        this.soldPropertiesService = soldPropertiesService;
         this.userService = userService;
     }
 
@@ -51,19 +47,7 @@ public class SellerPageController {
         return "sellerPage";
     }
 
-    @PostMapping(value = "/sellerPage", params = {"propertyId", "buyerEmail"})
-    public String buyProperty(@RequestParam("propertyId") Long propertyId, @RequestParam("buyerEmail") String buyerEmail, Model model) {
-        try {
-            soldPropertiesService.sellProperty(propertyId, buyerEmail);
-            model.addAttribute("message", "Property purchased successfully.");
-            return "redirect:/sellerPage";
-        } catch (IllegalArgumentException e) {
-            model.addAttribute("error", e.getMessage());
-            return "sellerPage";
-        }
-    }
-
-    @PostMapping(value = "/sellerPage", params = "propertyData")
+    @PostMapping("/sellerPage")
     public String addProperty(@ModelAttribute PropertyData propertyData, Model model) {
         try {
             // Save property
