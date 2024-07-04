@@ -104,6 +104,5 @@ function renderCardsFromLocalStorage() {
     syncLocalStorageWithProperties();
     renderCardsFromLocalStorage();
 })();
-
 /*]]>*/
 
