@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var statusElement = card.querySelector('.status');
 
         // Check if the status is 'sold'
-        if (statusElement && statusElement.textContent.trim().toLowerCase() === 'status: sold') {
+        if (statusElement && statusElement.textContent.trim().toLowerCase() === 'status: Rented') {
             // Add 'sold' class to the card
             card.classList.add('sold');
 

@@ -3,7 +3,7 @@ const dataContainer = document.getElementById('data-container');
 const pagination = document.getElementById('pagination');
 let currentPage = 1;
 
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", () => {
 
     function displayPage(page) {
         const startIndex = (page - 1) * cardsPerPage;
