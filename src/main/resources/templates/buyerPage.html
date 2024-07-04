@@ -32,8 +32,8 @@
                     <li class="nav-item px-1">
                         <a class="nav-link" href="#footer">Contact</a>
                     </li>
-                    <li class="nav-item px-1 " >
-                        <button class=" log-in  btn btn-outline-secondary" >
+                    <li class="nav-item px-1 ">
+                        <button class=" log-in  btn btn-outline-secondary">
                             <a class="no-underline" href="Dashboard">Log Out</a>
                         </button>
                     </li>
@@ -72,11 +72,11 @@
             </select>
 
             <select class="form-select select2" id="propertyType" style="width: 200px;">
-                <option disabled selected  value="">Select a Property Type</option>
+                <option disabled selected value="">Select a Property Type</option>
             </select>
 
             <select class="form-select select2" id="status" style="width: 200px;">
-                <option disabled selected  value="">Status</option>
+                <option disabled selected value="">Status</option>
             </select>
 
             <select class="form-select select2" id="rooms" style="width: 200px;">
@@ -84,17 +84,19 @@
             </select>
 
             <select class="form-select select2" id="budget" style="width: 200px;">
-                <option disabled selected  value="">Budget</option>
+                <option disabled selected value="">Budget</option>
             </select>
 
             <!-- Calling the dropdown function to populate options -->
             <script th:src="@{/JavaScript/DropdownSelectionFunction.js}" th:inline="none"></script>
 
             <!-- Button -->
-            <button class="reset-btn button-search btn btn-outline-secondary col-lg-1 col-3" id="resetButton" name="Reset"
+            <button class="reset-btn button-search btn btn-outline-secondary col-lg-1 col-3" id="resetButton"
+                    name="Reset"
                     type="button">Reset
             </button>
-            <button class="search button-search btn btn-outline-secondary col-lg-1 col-3" id="searchButton" name="Search"
+            <button class="search button-search btn btn-outline-secondary col-lg-1 col-3" id="searchButton"
+                    name="Search"
                     type="button">Search
             </button>
         </div>
@@ -107,50 +109,53 @@
                      tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered contact-apartment">
                         <div class="modal-content text-center d-flex align-items-center justify-content-center">
-                            <div class="mb-3 modal-header container d-flex justify-content-between ">
-                                <h5 class="modal-title contact-title col-11" id="log-in">Rent property</h5>
-                                <!-- Close button -->
-                                <button type="button" class="btn-close col-1" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <form class="col-md-6">
-                                        <div class="form-group">
+                            <form th:action="@{/buyerPage}" method="post">
+                                <div class="mb-3 modal-header container d-flex justify-content-between ">
+                                    <h5 class="modal-title contact-title col-11" id="log-in">Rent property</h5>
+                                    <!-- Close button -->
+                                    <button type="button" class="btn-close col-1" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
                                             <label class="p-2" for="firstName">First name*</label>
-                                            <input class="form-control" id="VornameC" placeholder="Vorname" type="text">
+                                            <input class="form-control" id="firstName1" placeholder="First name"
+                                                   type="text">
                                         </div>
-                                    </form>
-                                    <form class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group col-md-6">
                                             <label class="p-2" for="lastName">Last name*</label>
-                                            <input class="form-control" id="NachnameC" placeholder="Nachname"
+                                            <input class="form-control" id="lastName1" placeholder="Last name"
                                                    type="text">
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="row">
-                                    <form class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="p-2" for="Email">Email Address*</label>
-                                            <input class="form-control" id="EmailC" placeholder="email@example.com"
-                                                   type="text">
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-8">
+                                            <label class="p-2" for="Email">Email*</label>
+                                            <input class="form-control" id="email1" placeholder="email@example.com"
+                                                   type="email" name="buyerEmail" required>
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="row pb-4">
-                                    <form class="col-md-12">
-                                        <div class="form-group">
+                                        <div class="form-group col-md-4">
+                                            <label class="p-2" for="Message">Property ID</label>
+                                            <input class="form-control" id="ID1"
+                                                   placeholder="Property ID"
+                                                   type="text" name="propertyId" required>
+                                        </div>
+                                    </div>
+                                    <div class="row pb-4">
+                                        <div class="form-group col-md-12">
                                             <label class="p-2" for="Message">Your Message</label>
-                                            <input class="form-control contact-message" id="NachrichtC"
+                                            <input class="form-control contact-message" id="message1"
                                                    placeholder="Your Message"
                                                    type="text">
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer container d-flex justify-content-center p-0">
-                                <button class="log-in btn btn-outline-secondary px-5 mb-3" type="submit">Rent</button>
-                            </div>
+                                <div class="modal-footer container d-flex justify-content-center p-0">
+                                    <button class="log-in btn btn-outline-secondary px-5 mb-3" type="submit">Rent
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -162,61 +167,53 @@
                 <script th:src="@{/JavaScript/GenerateCardsFunction.js}" th:inline="none"></script>
             </div>
             <!-- Vertical Card -->
-            <div class="scrollable-container container-fluid col-md-4 p-0 g-0">
-                <div class="card-hidden vertical-card m-0" id="vcard1">
-                    <div class="row g-0">
-                        <div class="contact-box  container p-2">
-                            <h5 class="contact-title row justify-content-center py-3">Rent property</h5>
-                            <div class="row">
-                                <form class="col-md-6">
-                                    <div class="form-group">
+            <div class="vertical-card scrollable-container container-fluid col-md-4 p-0 g-0">
+                <form th:action="@{/buyerPage}" method="post">
+                    <div class="card-hidden card m-0" id="vcard1">
+                        <div class="row g-0">
+                            <div class="contact-box  container p-2">
+                                <h5 class="contact-title row justify-content-center py-3">Rent property</h5>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
                                         <label class="p-2" for="firstName">First name*</label>
                                         <input class="form-control" id="firstName" placeholder="First name" type="text">
                                     </div>
-                                </form>
-                                <form class="col-md-6">
-                                    <div class="form-group">
+                                    <div class="form-group col-md-6">
                                         <label class="p-2" for="lastName">Last name*</label>
                                         <input class="form-control" id="lastName" placeholder="Last name"
                                                type="text">
                                     </div>
-                                </form>
-                            </div>
-                            <div class="row">
-                                <form class="col-md-6">
-                                    <div class="form-group">
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-8">
                                         <label class="p-2" for="Email">Email*</label>
                                         <input class="form-control" id="email" placeholder="email@example.com"
-                                               type="text">
+                                               type="email" name="buyerEmail" required>
                                     </div>
-                                </form>
-                                <form class="col-md-6">
-                                    <label class="mt-3" for="contactDropdown">Card Option*</label>
-                                    <div class="mt-2">
-                                        <select class="form-select select2" id="contactDropdown" style="width: 200px;">
-                                            <option disabled selected value="">Select a Card</option>
-                                        </select>
+                                    <div class="form-group col-md-4">
+                                        <label class="p-2" for="Message">Property ID</label>
+                                        <input class="form-control" id="ID"
+                                               placeholder="Property ID"
+                                               type="text" name="propertyId" required>
                                     </div>
-                                </form>
-                            </div>
-
-                            <div class="row pb-4">
-                                <form class="col-md-12">
-                                    <div class="form-group">
+                                </div>
+                                <div class="row pb-4">
+                                    <div class="form-group col-md-12">
                                         <label class="p-2" for="Message">Your Message</label>
                                         <input class="form-control contact-message" id="message"
                                                placeholder="Your Message"
                                                type="text">
                                     </div>
-                                </form>
-                            </div>
-                            <div class="row justify-content-center ">
-                                <button class="btn btn-outline-secondary col-md-4 " type="button">Rent</button>
+                                </div>
+                                <div class="row justify-content-center ">
+                                    <button class="btn btn-outline-secondary col-md-4 " type="submit">Rent</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
+
 
             <script th:src="@{/JavaScript/ContactDropdownFunction.js}" th:inline="none"></script>
         </div>
