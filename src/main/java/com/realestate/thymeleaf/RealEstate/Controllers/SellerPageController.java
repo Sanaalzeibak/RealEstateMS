@@ -42,7 +42,6 @@ public class SellerPageController {
         model.addAttribute("jsonProperties", jsonProperties);
         model.addAttribute("jsonPropertiesGC", jsonPropertiesGC);
         model.addAttribute("jsonPropertiesDS", jsonPropertiesDS);
-        model.addAttribute("jsonContactProperties", jsonContactProperties);
 
         return "sellerPage";
     }
@@ -53,7 +52,8 @@ public class SellerPageController {
             // Save property
             propertyRepository.save(propertyData);
             model.addAttribute("message", "Property added successfully.");
-            return "successBuy";  // Replace with your success page name
+            //return "successBuy";  // Replace with your success page name
+            return "redirect:/sellerPage";
         } catch (IllegalArgumentException e) {
             model.addAttribute("error", e.getMessage());
             return "sellerPage";  // Return to the form page if there's an error
