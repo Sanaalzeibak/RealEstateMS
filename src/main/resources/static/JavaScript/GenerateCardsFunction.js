@@ -51,7 +51,7 @@ function generateCardHTML(property) {
                                 <p class="card-text">${property.rooms} Rooms</p>
                             </div>
                             <div class="col-md-3">
-                                <button class="contact-btn btn btn-outline-secondary" data-bs-target="#contact" data-bs-toggle="modal" type="button">Rent</button>
+                                <button class="contact-btn btn btn-outline-secondary rent-btn" data-property-id="${property.id}" type="button">Rent</button>
                             </div>
                         </div>
                     </div>
@@ -100,9 +100,33 @@ function renderCardsFromLocalStorage() {
     }
 }
 
+function updateCardStatusToRented(propertyId) {
+    const propertyKey = `propertyCard-${propertyId}`;
+    let cardHTML = localStorage.getItem(propertyKey);
+    if (cardHTML) {
+        // Update the Status from Active to Rented
+        cardHTML = cardHTML.replace(/<p class="card-info status">Status: .+<\/p>/, '<p class="card-info status">Status: Rented</p>');
+
+        // Save the updated card HTML back to localStorage
+        localStorage.setItem(propertyKey, cardHTML);
+        console.log(`Property card ${propertyId} updated to rented in localStorage.`);
+
+        // Re-render the updated card in the DOM
+        document.getElementById(`property-${propertyId}`).outerHTML = cardHTML;
+    } else {
+        console.error(`Property card ${propertyId} not found in localStorage.`);
+    }
+}
+
+document.addEventListener('click', function (event) {
+    if (event.target.matches('.rent-btn')) {
+        const propertyId = document.getElementById('ID').value || document.getElementById('ID1').value;
+        updateCardStatusToRented(propertyId);
+    }
+});
+
 (function() {
     syncLocalStorageWithProperties();
     renderCardsFromLocalStorage();
 })();
 /*]]>*/
-
