@@ -59,7 +59,7 @@
                                         <img class="" alt="Icon" src="/Images/username.png">
                                     </span>
                                     <label>
-                                        <input id="usernameInput" class="form-control custom-input " placeholder="Username" type="text">
+                                        <input id="usernameInput" class="form-control custom-input " placeholder="Email" type="text">
                                     </label>
                                 </div>
                                 <div class="mb-3 container d-flex col-12">
@@ -85,10 +85,9 @@
 
             <script th:inline="javascript">
                 /*<![CDATA[*/
-                const jsonUserData = /*[[${jsonUserData}]]*/ '';
+                const jsonUserData = /*[[${userData}]]*/ '';
 
                 const users = JSON.parse(jsonUserData);
-                users[1].username
 
                 const usernameInput = document.getElementById('usernameInput');
                 const passwordInput = document.getElementById('passwordInput');
@@ -98,7 +97,7 @@
                     const usernameValue = usernameInput.value;
                     const passwordValue = passwordInput.value;
 
-                    const userIndex = users.findIndex(user => user.username === usernameValue);
+                    const userIndex = users.findIndex(user => user.email === usernameValue);
 
                     if(userIndex !== -1 && users[userIndex].password === passwordValue) {
                         window.location.href = users[userIndex].role + "Page";

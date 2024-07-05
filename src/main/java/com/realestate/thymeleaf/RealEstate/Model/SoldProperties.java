@@ -16,15 +16,12 @@ public class SoldProperties {
         private Long propertyId;
         @Column(name = "buyer_id")
         private Long buyerId;
-        @Column(name = "sold_date")
-        private LocalDateTime soldDate;
 
 
     //Constructor
-        public SoldProperties(Long propertyId, Long buyerId, LocalDateTime now) {
+        public SoldProperties(Long propertyId, Long buyerId) {
             this.propertyId = propertyId;
             this.buyerId = buyerId;
-            this.soldDate = soldDate;
         }
 
         //Default Constructor

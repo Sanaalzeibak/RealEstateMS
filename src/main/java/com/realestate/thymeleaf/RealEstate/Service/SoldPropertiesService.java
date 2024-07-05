@@ -41,7 +41,7 @@ public class SoldPropertiesService {
         PropertyData property = propertyOptional.get();
 
         // Create a new SoldProperty record
-        SoldProperties soldProperties = new SoldProperties(propertyId, buyerId, LocalDateTime.now());
+        SoldProperties soldProperties = new SoldProperties(propertyId, buyerId);
         soldPropertyRepository.save(soldProperties);
 
         // Update property status to "Sold" using custom repository method

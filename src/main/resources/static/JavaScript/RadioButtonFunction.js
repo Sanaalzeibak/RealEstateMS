@@ -1,4 +1,4 @@
-document.getElementById('signIn').addEventListener('click', function() {
+/*document.getElementById('signIn').addEventListener('click', function() {
     const sellerRadio = document.getElementById('seller');
     const buyerRadio = document.getElementById('buyer');
     const logIn = document.getElementById('logIn');
@@ -12,4 +12,4 @@ document.getElementById('signIn').addEventListener('click', function() {
         window.location.href = '/signIn';
     }
 });
-
+*/

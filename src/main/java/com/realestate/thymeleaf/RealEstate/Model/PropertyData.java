@@ -28,8 +28,8 @@ public class PropertyData {
     //private String purchasePrice;
     @Column(name = "RentalPrice")
     private String rentalPrice;
-    @Column(name = "Perimeter")
-    private String perimeter;
+    @Column(name = "rentalCosts")
+    private String rentalCost;
     @Column(name = "rooms")
     private String rooms;
     @Column(name = "bathrooms")
@@ -38,11 +38,13 @@ public class PropertyData {
     private String squareFootage;
     @Column(name = "ListingStatus")
     private String listingStatus;
+    @Column(name = "UserId")
+    private long userId;
 
 
 
     // Constructor
-    public PropertyData(Long id, String address, String city, String zip, String country, String propertyType, String purchasePrice, String rentalPrice, String perimeter, String rooms, String bathrooms, String squareFootage, String listingStatus) {
+    public PropertyData(Long id, String address, String city, String zip, String country, String propertyType, String purchasePrice, String rentalPrice, String rentalCost, String rooms, String bathrooms, String squareFootage, String listingStatus, long userId) {
         this.id = id;
         this.address = address;
         this.city = city;
@@ -51,11 +53,12 @@ public class PropertyData {
         this.propertyType = propertyType;
         // this.purchasePrice = purchasePrice;
         this.rentalPrice = rentalPrice;
-        this.perimeter = perimeter;
+        this.rentalCost = rentalCost;
         this.rooms = rooms;
         this.bathrooms = bathrooms;
         this.squareFootage = squareFootage;
         this.listingStatus = listingStatus;
+        this.userId = userId;
     }
 
     public PropertyData() {
@@ -120,12 +123,12 @@ public class PropertyData {
         this.rentalPrice = rentalPrice;
     }
 
-    public String getPerimeter() {
-        return perimeter;
+    public String getRentalCost() {
+        return rentalCost;
     }
 
-    public void setPerimeter(String perimeter) {
-        this.perimeter = perimeter;
+    public void setRentalCost(String rentalCost) {
+        this.rentalCost = rentalCost;
     }
 
     public String getRooms() {
@@ -160,6 +163,12 @@ public class PropertyData {
         this.listingStatus = listingStatus;
     }
 
+    public long getUserId() {
+        return userId;
+    }
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
 
     @Override
     public String toString() {
@@ -169,7 +178,7 @@ public class PropertyData {
                 ", city='" + city + '\'' +
                 ", country='" + country + '\'' +
                 ", listingStatus='" + listingStatus + '\'' +
-                ", perimeter=" + perimeter +
+                ", rentalCost=" + rentalCost +
                 ", propertyType='" + propertyType + '\'' +
                 ", rentalPrice=" + rentalPrice +
                 ", rooms=" + rooms +

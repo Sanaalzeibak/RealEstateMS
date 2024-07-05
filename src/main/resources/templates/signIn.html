@@ -38,82 +38,78 @@
 </nav>
 <div class="container-fluid main-container d-flex pt-5 p-0">
     <div class="sing-in-container  justify-content-center col-lg-6 col-12 p-4">
-        <h4 class="contact-title row justify-content-center py-4">Konto erstellen</h4>
-        <div class="row justify-content-center">
-            <form class="d-flex col-10">
-                <p class="label-radionbox col-6 px-2">Wählen Sie eine Rolle*:</p>
-                <!-- Radio Button 1 -->
-                <div class="form-check px-2">
-                    <input type="radio" class="form-check-input" id="buyer" name="options" required>
-                    <label for="buyer" class="form-check-label">Käufer</label>
-                </div>
+        <form th:action="@{/signIn}" th:object="${userData}" method="post">
 
-                <!-- Radio Button 2 -->
-                <div class="form-check">
-                    <input type="radio" class="form-check-input" id="seller" name="options" required>
-                    <label for="seller" class="form-check-label">Verkäufer</label>
-                </div>
+            <h4 class="contact-title row justify-content-center py-4">Create account</h4>
+            <div class="row justify-content-center">
+                <div class="d-flex col-10">
+                    <p class="label-radionbox col-6 px-2">Choose your role*:</p>
+                    <!-- Radio Button 1 -->
+                    <div class="form-check px-2">
+                        <input type="radio" class="form-check-input" id="buyer"  name="role" th:value="'Buyer'" required>
+                        <label for="buyer" class="form-check-label">Buyer</label>
+                    </div>
 
-            </form>
-            <form class="col-md-10">
-                <div class="form-group">
-                    <label class="p-2" for="Vorname">Vorname*</label>
-                    <input class="form-control" id="Vorname" placeholder="Vorname" type="text">
+                    <!-- Radio Button 2 -->
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="seller"  name="role" th:value="'Seller'" required>
+                        <label for="seller" class="form-check-label">Seller</label>
+                    </div>
+
                 </div>
-            </form>
-        </div>
-        <div class="row justify-content-center">
-            <form class="col-md-10">
-                <div class="form-group">
-                    <label class="p-2" for="Nachname">Nachname*</label>
+                <div class="form-group col-md-10">
+                    <label class="p-2" for="Vorname">First name*</label>
+                    <input class="form-control" id="Vorname" placeholder="Vorname" type="text" th:field="*{firstName}">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="form-group col-md-10">
+                    <label class="p-2" for="Nachname">Last name*</label>
                     <input class="form-control" id="Nachname" placeholder="Nachname"
-                           type="text">
+                           type="text" th:field="*{lastName}">
                 </div>
-            </form>
-        </div>
-        <div class="row justify-content-center">
-            <form class="col-md-10">
-                <div class="form-group">
-                    <label class="p-2" for="Email">Email Address*</label>
+            </div>
+            <div class="row justify-content-center">
+                <div class="form-group col-md-10">
+                    <label class="p-2" for="Email">Email*</label>
                     <input class="form-control" id="Email" placeholder="email@example.com"
-                           type="text">
+                           type="text" th:field="*{email}">
                 </div>
-            </form>
-        </div>
-        <div class="row justify-content-center">
-            <form class="col-md-10">
-                <div class="form-group">
-                    <label class="p-2" for="Passwort">Passwort</label>
+            </div>
+            <div class="row justify-content-center">
+                <div class="form-group col-md-10">
+                    <label class="p-2" for="Passwort">Password</label>
                     <input class="form-control password-input" id="Passwort"
                            placeholder="Passwort"
-                           type="text">
+                           type="text" >
                 </div>
-            </form>
-        </div>
-        <div class="row justify-content-center">
-            <form class="col-md-10">
-                <div class="form-group">
-                    <label class="p-2" for="Passwort2">Passwort nochmals eingeben</label>
+            </div>
+            <div class="row justify-content-center">
+                <div class="form-group col-md-10">
+                    <label class="p-2" for="Passwort2">Enter password one more time</label>
                     <input class="form-control password-input" id="Passwort2"
                            placeholder="Passwort"
                            type="text">
                 </div>
-            </form>
-        </div>
-        <div class="row justify-content-center">
-            <button id="signIn" class="btn btn-outline-secondary col-4 " type="submit">Absenden</button>
-        </div>
-        <div class="row justify-content-center">
-            <div class="extisting-account col-md-5 py-3 text-center">Du hast bereits ein Konto?
-                <a href="dashboard">Anmelden</a>
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="privacy-notice col-md-10 pt-2 ">Durch die Erstellung eines Kontos erklärst du dich mit
-                den Nutzungs- und Verkaufsbedingungen einverstanden.
+
+            <div class="row justify-content-center">
+                <button id="signIn" class="btn btn-outline-secondary col-4 " type="submit">Create</button>
             </div>
-        </div>
+        </form>
+            <div class="row justify-content-center">
+                <div class="extisting-account col-md-5 py-3 text-center">Do your already have an account?
+                    <a href="dashboard">Log in </a>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="privacy-notice col-md-10 pt-2 ">By creating an account, you agree to the Terms of Use and
+                    Sale.
+                </div>
+            </div>
+
     </div>
+
     <div class="sing-in-picture col-0 col-lg-6"></div>
 </div>
 <!-- Footer Section -->
@@ -122,20 +118,20 @@
         <div class="row justify-content-center">
             <!-- Column 1: Über uns -->
             <div class="col-md-4">
-                <h5>Über uns</h5>
+                <h5>About us</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel eros ligula.</p>
             </div>
             <!-- Column 2: Unterstützung -->
             <div class="col-md-4">
-                <h5>Unterstützung</h5>
+                <h5>Support</h5>
                 <ul class="list-unstyled">
-                    <li><a class="text-white no-underline " href="#">Hilfe</a></li>
-                    <li><a class="text-white no-underline " href="#">Kontakt</a></li>
+                    <li><a class="text-white no-underline " href="#">Help</a></li>
+                    <li><a class="text-white no-underline " href="#">Contact</a></li>
                 </ul>
             </div>
             <!-- Column 3: Kontakt -->
             <div class="col-md-4">
-                <h5>Kontakt</h5>
+                <h5>Contact</h5>
                 <p>
                     123 Main Street<br>
                     City, State 12345<br>

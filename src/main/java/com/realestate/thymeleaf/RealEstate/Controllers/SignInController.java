@@ -26,10 +26,12 @@ public class SignInController {
     }
     @GetMapping("/signIn")
     public String getUsers(Model model) {
+        UserData userData = new UserData();
+        model.addAttribute("userData", userData);
         List<UserData> users = userRepository.findAll();
         Gson gson = new Gson();
         String jsonUsers = gson.toJson(users);
-        model.addAttribute("users", jsonUsers);
+        //model.addAttribute("users", users);
         return "signIn"; // returns the name of the view template (users.html)
     }
 
@@ -39,8 +41,21 @@ public class SignInController {
     }
 
     @PostMapping("/signIn")
-    public String saveUser(@ModelAttribute UserData user) {
-        userRepository.save(user);
-        return "redirect:/success";  // Redirect to a success page or the desired page
+    public String saveUser(@ModelAttribute UserData userData, Model model) {
+
+        try {
+        userRepository.save(userData);
+        model.addAttribute("message", "Property added successfully.");
+            if ("Buyer".equalsIgnoreCase(userData.getRole())) {
+                return "redirect:/BuyerPage";  // Redirect to buyer page
+            } else if ("Seller".equalsIgnoreCase(userData.getRole())) {
+                return "redirect:/sellerPage";  // Redirect to seller pag
+            } else {
+                return "success";  // Redirect to admin page
+            }
+    } catch (IllegalArgumentException e) {
+        model.addAttribute("error", e.getMessage());
+        return "signIn";  // Return to the form page if there's an error
+    }
     }
 }

@@ -2,7 +2,9 @@ package com.realestate.thymeleaf.RealEstate.Controllers;
 
 import com.google.gson.Gson;
 import com.realestate.thymeleaf.RealEstate.Model.PropertyData;
+import com.realestate.thymeleaf.RealEstate.Model.UserData;
 import com.realestate.thymeleaf.RealEstate.Repository.PropertyRepository;
+import com.realestate.thymeleaf.RealEstate.Repository.UserRepository;
 import com.realestate.thymeleaf.RealEstate.Service.SoldPropertiesService;
 import com.realestate.thymeleaf.RealEstate.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,17 +16,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class SellerPageController {
 
     private final PropertyRepository propertyRepository;
+    private final UserRepository userRepository;
     private final SoldPropertiesService soldPropertiesService;
     private final UserService userService;
 
     @Autowired
-    public SellerPageController(PropertyRepository propertyRepository,  SoldPropertiesService soldPropertiesService, UserService userService) {
+    public SellerPageController(PropertyRepository propertyRepository, UserRepository userRepository, SoldPropertiesService soldPropertiesService, UserService userService) {
         this.propertyRepository = propertyRepository;
+        this.userRepository = userRepository;
         this.soldPropertiesService = soldPropertiesService;
         this.userService = userService;
     }
@@ -61,9 +66,18 @@ public class SellerPageController {
         }
     }
     @PostMapping("/sellerPage")
-    public String addProperty(@ModelAttribute PropertyData propertyData, Model model) {
+    public String addProperty(@ModelAttribute PropertyData propertyData, String ownerEmail, Model model) {
         try {
+            //get user id from String ownerEmail and set it to property
+            /*Optional<Long> ownerIdOptional = userRepository.findIdByEmail(ownerEmail);
+            if (!ownerIdOptional.isPresent()) {
+                throw new IllegalArgumentException("Owner not found with email: " + ownerEmail);
+            }
+            long ownerId = ownerIdOptional.get();
+            propertyData.setUserId(ownerId);  // assuming PropertyData has a setUserId method
+            */
             // Save property
+            propertyData.setListingStatus("Active");
             propertyRepository.save(propertyData);
             model.addAttribute("message", "Property added successfully.");
             //return "successBuy";  // Replace with your success page name
