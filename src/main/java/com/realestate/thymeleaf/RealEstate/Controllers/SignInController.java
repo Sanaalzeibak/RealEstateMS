@@ -3,9 +3,7 @@ package com.realestate.thymeleaf.RealEstate.Controllers;
 
 
 import com.google.gson.Gson;
-import com.realestate.thymeleaf.RealEstate.Model.PropertyData;
 import com.realestate.thymeleaf.RealEstate.Model.UserData;
-import com.realestate.thymeleaf.RealEstate.Repository.PropertyRepository;
 import com.realestate.thymeleaf.RealEstate.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

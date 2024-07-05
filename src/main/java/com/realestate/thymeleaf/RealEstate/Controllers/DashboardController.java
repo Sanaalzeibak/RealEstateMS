@@ -3,8 +3,9 @@ package com.realestate.thymeleaf.RealEstate.Controllers;
 
 
 import com.google.gson.Gson;
-import com.realestate.thymeleaf.RealEstate.Model.UserCredentials;
-import com.realestate.thymeleaf.RealEstate.Repository.UserCredentialsRepository;
+
+import com.realestate.thymeleaf.RealEstate.Model.UserData;
+import com.realestate.thymeleaf.RealEstate.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,18 +17,18 @@ import java.util.List;
 @Controller
 public class DashboardController {
 
-    private final UserCredentialsRepository userCredentialsRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public DashboardController(UserCredentialsRepository userCredentialsRepository) {
-        this.userCredentialsRepository = userCredentialsRepository;
+    public DashboardController(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
     @GetMapping("/Dashboard")
     public String getUsers(Model model) {
-        List<UserCredentials> userCredentials = userCredentialsRepository.findAll();
+        List<UserData> userData = userRepository.findAll();
         Gson gson = new Gson();
-        String jsonUserCredentials = gson.toJson(userCredentials);
-        model.addAttribute("userCredentials", jsonUserCredentials);
+        String jsonUserData = gson.toJson(userData);
+        model.addAttribute("userData", jsonUserData);
         return "dashboard";
     }
 }

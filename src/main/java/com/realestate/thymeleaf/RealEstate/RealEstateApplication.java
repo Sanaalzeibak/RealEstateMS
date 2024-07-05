@@ -1,16 +1,7 @@
 package com.realestate.thymeleaf.RealEstate;
 
-import com.realestate.thymeleaf.RealEstate.Model.PropertyDataStorage;
-import com.realestate.thymeleaf.RealEstate.Model.UserDataStorage;
-import jakarta.annotation.PostConstruct;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 @SpringBootApplication
 public class RealEstateApplication {

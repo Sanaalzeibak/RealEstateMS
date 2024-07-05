@@ -85,9 +85,9 @@
 
             <script th:inline="javascript">
                 /*<![CDATA[*/
-                const jsonUsersCredentials = /*[[${userCredentials}]]*/ '';
+                const jsonUserData = /*[[${jsonUserData}]]*/ '';
 
-                const users = JSON.parse(jsonUsersCredentials);
+                const users = JSON.parse(jsonUserData);
                 users[1].username
 
                 const usernameInput = document.getElementById('usernameInput');
