@@ -120,12 +120,19 @@ function updateCardStatusToRented(propertyId) {
 
 document.addEventListener('click', function (event) {
     if (event.target.matches('.rent-btn')) {
-        const propertyId = document.getElementById('ID').value || document.getElementById('ID1').value;
+        const propertyId = event.target.getAttribute('data-property-id');
+        console.log(propertyId);
         updateCardStatusToRented(propertyId);
     }
 });
+/*
+function clearLocalStorage() {
+    localStorage.clear();
+    console.log('All local storage cleared.');
+} */
 
 (function() {
+    //clearLocalStorage(); // Clear local storage once
     syncLocalStorageWithProperties();
     renderCardsFromLocalStorage();
 })();
