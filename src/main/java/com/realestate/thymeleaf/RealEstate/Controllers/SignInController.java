@@ -49,7 +49,7 @@ public class SignInController {
             if ("Buyer".equalsIgnoreCase(userData.getRole())) {
                 return "redirect:/BuyerPage";  // Redirect to buyer page
             } else if ("Seller".equalsIgnoreCase(userData.getRole())) {
-                return "redirect:/sellerPage";  // Redirect to seller pag
+                return "redirect:/sellerPage";  // Redirect to seller page
             } else {
                 return "success";  // Redirect to admin page
             }

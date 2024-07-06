@@ -12,7 +12,13 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <!-- Stylesheet CSS links -->
     <link href="/CSS/styleSignIn.css" rel="stylesheet">
-
+    <style>
+        .required::after {
+            content: "*";
+            color: red;
+            margin-left: 5px;
+        }
+    </style>
 </head>
 <body>
 <!-- Navbar -->
@@ -43,66 +49,61 @@
             <h4 class="contact-title row justify-content-center py-4">Create account</h4>
             <div class="row justify-content-center">
                 <div class="d-flex col-10">
-                    <p class="label-radionbox col-6 px-2">Choose your role*:</p>
+                    <p class="label-radionbox col-6 px-2 required" data-toggle="tooltip">Choose your role*:</p>
                     <!-- Radio Button 1 -->
                     <div class="form-check px-2">
-                        <input type="radio" class="form-check-input" id="buyer"  name="role" th:value="'Buyer'" required>
+                        <input type="radio" class="form-check-input" id="buyer" name="role" th:value="'Buyer'" required>
                         <label for="buyer" class="form-check-label">Buyer</label>
                     </div>
 
                     <!-- Radio Button 2 -->
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" id="seller"  name="role" th:value="'Seller'" required>
+                        <input type="radio" class="form-check-input" id="seller"  name="role" th:value="'seller'" required>
                         <label for="seller" class="form-check-label">Seller</label>
                     </div>
 
                 </div>
                 <div class="form-group col-md-10">
-                    <label class="p-2" for="Vorname">First name*</label>
-                    <input class="form-control" id="Vorname" placeholder="Vorname" type="text" th:field="*{firstName}">
+                    <label class="p-2 required" for="Vorname" data-toggle="tooltip" title="First name is required">First name</label>
+                    <input class="form-control" id="Vorname" placeholder="Vorname" type="text" th:field="*{firstName}" required>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-md-10">
-                    <label class="p-2" for="Nachname">Last name*</label>
-                    <input class="form-control" id="Nachname" placeholder="Nachname"
-                           type="text" th:field="*{lastName}">
+                    <label class="p-2 required" for="Nachname" data-toggle="tooltip" title="Last name is required">Last name</label>
+                    <input class="form-control" id="Nachname" placeholder="Nachname" type="text" th:field="*{lastName}" required>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-md-10">
-                    <label class="p-2" for="Email">Email*</label>
-                    <input class="form-control" id="Email" placeholder="email@example.com"
-                           type="text" th:field="*{email}">
+                    <label class="p-2 required" for="Email" data-toggle="tooltip" title="Email is required">Email</label>
+                    <input class="form-control" id="Email" placeholder="email@example.com" type="text" th:field="*{email}" required>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="form-group col-md-10">
-                    <label class="p-2" for="Passwort">Password</label>
-                    <input class="form-control password-input" id="Passwort"
-                           placeholder="Passwort"
-                           type="text" >
+                    <label class="p-2 required" for="Password" data-toggle="tooltip" title="Password is required">Password</label>
+                    <input class="form-control password-input" id="Password" placeholder="Password" type="password" th:field="*{password}" required>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="form-group col-md-10">
-                    <label class="p-2" for="Passwort2">Enter password one more time</label>
-                    <input class="form-control password-input" id="Passwort2"
-                           placeholder="Passwort"
-                           type="text">
+                <div class="form-group col-md-10 mb-5">
+                    <label class="p-2 required" for="ConfirmPassword" data-toggle="tooltip" title="Please re-enter your password">Enter password one more time</label>
+                    <input class="form-control password-input" id="ConfirmPassword" placeholder="Password" type="password" required>
                 </div>
             </div>
 
             <div class="row justify-content-center">
                 <button id="signIn" class="btn btn-outline-secondary col-4 " type="submit">Create</button>
             </div>
+
         </form>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mt-1">
                 <div class="extisting-account col-md-5 py-3 text-center">Do your already have an account?
                     <a href="dashboard">Log in </a>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mt-3">
                 <div class="privacy-notice col-md-10 pt-2 ">By creating an account, you agree to the Terms of Use and
                     Sale.
                 </div>

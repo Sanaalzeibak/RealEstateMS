@@ -59,7 +59,7 @@
                                         <img class="" alt="Icon" src="/Images/username.png">
                                     </span>
                                     <label>
-                                        <input id="usernameInput" class="form-control custom-input " placeholder="Email" type="text">
+                                        <input id="emailInput" class="form-control custom-input " placeholder="Email" type="text">
                                     </label>
                                 </div>
                                 <div class="mb-3 container d-flex col-12">
@@ -85,30 +85,36 @@
 
             <script th:inline="javascript">
                 /*<![CDATA[*/
-                const jsonUserData = /*[[${userData}]]*/ '';
+                const jsonUsersCredentials = /*[[${userData}]]*/ '';
 
-                const users = JSON.parse(jsonUserData);
+                const users = JSON.parse(jsonUsersCredentials);
+                console.log(users);
 
-                const usernameInput = document.getElementById('usernameInput');
+                const emailInput = document.getElementById('emailInput');
                 const passwordInput = document.getElementById('passwordInput');
                 const submitButton = document.getElementById('submitButton');
 
                 submitButton.addEventListener('click', function() {
-                    const usernameValue = usernameInput.value;
+                    const emailValue = emailInput.value;
                     const passwordValue = passwordInput.value;
 
-                    const userIndex = users.findIndex(user => user.email === usernameValue);
+                    console.log(emailValue);
+                    console.log(passwordValue);
+                    console.log("Json parsed", users[46].email);
+                    console.log("Json parsed", users[46].password);
+
+                    const userIndex = users.findIndex(user => user.email === emailValue);
 
                     if(userIndex !== -1 && users[userIndex].password === passwordValue) {
                         window.location.href = users[userIndex].role + "Page";
-                        usernameValue.value = '';
+                        emailValue.value = '';
                         passwordValue.value = '';
                     } else {
-                        usernameInput.classList.add('shake');
+                        emailInput.classList.add('shake');
                         passwordInput.classList.add('shake');
 
                         setTimeout(() => {
-                            usernameInput.classList.remove('shake');
+                            emailInput.classList.remove('shake');
                             passwordInput.classList.remove('shake');
                         }, 500);
                     }
