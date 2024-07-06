@@ -33,16 +33,12 @@ public class BuyerPageController {
         // Load properties for jsonProperties, jsonPropertiesGC, and jsonPropertiesDS
         List<PropertyData> properties = propertyRepository.findAll();
         Gson gson = new Gson();
-        String jsonProperties = gson.toJson(properties);
         String jsonPropertiesGC = gson.toJson(properties);
         String jsonPropertiesDS = gson.toJson(properties);
-        String jsonContactProperties = gson.toJson(properties);
 
         // Add these to the model
-        model.addAttribute("jsonProperties", jsonProperties);
         model.addAttribute("jsonPropertiesGC", jsonPropertiesGC);
         model.addAttribute("jsonPropertiesDS", jsonPropertiesDS);
-        model.addAttribute("jsonContactProperties", jsonContactProperties);
 
         return "buyerPage";
     }

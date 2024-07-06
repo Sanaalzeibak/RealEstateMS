@@ -12,6 +12,13 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <!-- Stylesheet CSS links -->
     <link href="/CSS/style.css" rel="stylesheet">
+    <style>
+        .required::after {
+            content: "*";
+            color: red;
+            margin-left: 5px;
+        }
+    </style>
 </head>
 <body>
 <div class="bg dashboard-SP container-fluid">
@@ -57,10 +64,8 @@
     <!-- Initialize all Controllers needed for frontend -->
     <script th:inline="javascript">
         /*<![CDATA[*/
-        var jsonProperties = /*[[${jsonProperties}]]*/ '[]';
         var jsonPropertiesGC = /*[[${jsonPropertiesGC}]]*/ '[]';
         var jsonPropertiesDS = /*[[${jsonPropertiesDS}]]*/ '[]';
-        var jsonContactProperties = /*[[${jsonContactProperties}]]*/ '[]'
         /*]]>*/
     </script>
 
@@ -119,24 +124,24 @@
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            <label class="p-2" for="firstName">First name*</label>
+                                            <label class="p-2 required" for="firstName" data-toggle="tooltip" title="First name is required">First name</label>
                                             <input class="form-control" id="firstName1" placeholder="First name"
                                                    type="text">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="p-2" for="lastName">Last name*</label>
+                                            <label class="p-2 required" for="lastName" data-toggle="tooltip" title="Last name is required">Last name</label>
                                             <input class="form-control" id="lastName1" placeholder="Last name"
                                                    type="text">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-8">
-                                            <label class="p-2" for="Email">Email*</label>
+                                            <label class="p-2 required" for="Email" data-toggle="tooltip" title="Email is required">Email</label>
                                             <input class="form-control" id="email1" placeholder="email@example.com"
                                                    type="email" name="buyerEmail" required>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label class="p-2" for="Message">Property ID</label>
+                                            <label class="p-2 required" for="Message" data-toggle="tooltip" title="Property ID is required">Property ID</label>
                                             <input class="form-control" id="ID1"
                                                    placeholder="Property ID"
                                                    type="text" name="propertyId" required>
@@ -144,7 +149,7 @@
                                     </div>
                                     <div class="row pb-4">
                                         <div class="form-group col-md-12">
-                                            <label class="p-2" for="Message">Your Message</label>
+                                            <label class="p-2" for="Message">Your Message (Optional)</label>
                                             <input class="form-control contact-message" id="message1"
                                                    placeholder="Your Message"
                                                    type="text">
@@ -175,23 +180,23 @@
                                 <h5 class="contact-title row justify-content-center py-3">Rent property</h5>
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label class="p-2" for="firstName">First name*</label>
+                                        <label class="p-2 required" for="firstName" data-toggle="tooltip" title="First name is required">First name</label>
                                         <input class="form-control" id="firstName" placeholder="First name" type="text">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="p-2" for="lastName">Last name*</label>
+                                        <label class="p-2 required" for="lastName" data-toggle="tooltip" title="Last name is required">Last name</label>
                                         <input class="form-control" id="lastName" placeholder="Last name"
                                                type="text">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-8">
-                                        <label class="p-2" for="Email">Email*</label>
+                                        <label class="p-2 required" for="Email" data-toggle="tooltip" title="Email is required">Email</label>
                                         <input class="form-control" id="email" placeholder="email@example.com"
                                                type="email" name="buyerEmail" required>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label class="p-2" for="Message">Property ID</label>
+                                        <label class="p-2 required" for="Message" data-toggle="tooltip" title="Property ID is required">Property ID</label>
                                         <input class="form-control" id="ID"
                                                placeholder="Property ID"
                                                type="text" name="propertyId" required>
@@ -199,7 +204,7 @@
                                 </div>
                                 <div class="row pb-4">
                                     <div class="form-group col-md-12">
-                                        <label class="p-2" for="Message">Your Message</label>
+                                        <label class="p-2" for="Message">Your Message (Optional)</label>
                                         <input class="form-control contact-message" id="message"
                                                placeholder="Your Message"
                                                type="text">

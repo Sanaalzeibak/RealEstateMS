@@ -13,6 +13,13 @@
     <!-- Stylesheet CSS links -->
     <link href="/CSS/style.css" rel="stylesheet">
     <link href="/CSS/styleSeller.css" rel="stylesheet">
+    <style>
+        .required::after {
+            content: "*";
+            color: red;
+            margin-left: 5px;
+        }
+    </style>
 </head>
 <body>
 <div class="bg dashboard-SP container-fluid">
@@ -74,25 +81,25 @@
                         <form th:action="@{/sellerPage}" th:object="${propertyData}" method="post">
                             <div class="row">
                                 <div class="form-group col-md-6 ">
-                                    <label class="p-2">First Name*</label>
+                                    <label class="p-2 required" data-toggle="tooltip" title="First name is required">First Name</label>
                                     <input class="form-control" id="addFirstName" placeholder=" Enter first name"
                                            type="text">
                                 </div>
                                 <div class="form-group col-md-6 ">
-                                    <label class="p-2">Last Name*</label>
+                                    <label class="p-2 required" data-toggle="tooltip" title="Last name is required">Last Name</label>
                                     <input class="form-control" id="addLastName" placeholder="Enter last name"
                                            type="text">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-9">
-                                    <label class="p-2">Address*</label>
+                                    <label class="p-2 required" data-toggle="tooltip" title="Email is required">Address</label>
                                     <input class="form-control" id="addAddressName" placeholder="Enter address"
                                            type="text"
                                            th:field="*{address}">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label class="p-2">ZIP*</label>
+                                    <label class="p-2 required" data-toggle="tooltip" title="ZIP is required">ZIP</label>
                                     <input class="form-control" id="zip" placeholder="Enter ZIP code"
                                            type="text" th:field="*{zip}">
                                 </div>
@@ -100,24 +107,24 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label class="p-2">City*</label>
+                                    <label class="p-2 required" data-toggle="tooltip" title="City is required">City</label>
                                     <input class="form-control" id="addCity" placeholder="Enter city"
                                            type="text" th:field="*{city}">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="p-2">Country*</label>
+                                    <label class="p-2 required" data-toggle="tooltip" title="Country is required">Country</label>
                                     <input class="form-control" id="country" placeholder="Enter counter"
                                            type="text" th:field="*{country}">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label class="p-2">Rooms*</label>
+                                    <label class="p-2 required" data-toggle="tooltip" title="Room is required">Rooms</label>
                                     <input class="form-control" id="addRooms" placeholder="Enter rooms" type="text"
                                            th:field="*{rooms}">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="p-2">Bathrooms*</label>
+                                    <label class="p-2">Bathrooms</label>
                                     <input class="form-control" id="addBathrooms" placeholder="Enter bathrooms"
                                            type="text"
                                            th:field="*{bathrooms}">
@@ -125,33 +132,33 @@
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label class="p-2">Property Type*</label>
+                                    <label class="p-2 required" data-toggle="tooltip" title="Property Type is required">Property Type</label>
                                     <input class="form-control" id="addApartmentType"
                                            placeholder="Enter apartment type"
                                            type="text" th:field="*{propertyType}">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="p-2">Price*</label>
+                                    <label class="p-2 required" data-toggle="tooltip" title="Price is required">Price</label>
                                     <input class="form-control" id="addPrice" placeholder="Enter price"
                                            type="text" th:field="*{rentalPrice}">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label class="p-2">SquareFootage*</label>
+                                    <label class="p-2 required" data-toggle="tooltip" title="Square Footage is required">SquareFootage</label>
                                     <input class="form-control" id="addSquareFootage"
                                            placeholder="Enter square footage"
                                            type="text" th:field="*{squareFootage}">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="p-2">Rental Cost*</label>
+                                    <label class="p-2 required" data-toggle="tooltip" title="Rental Cost is required">Rental Cost</label>
                                     <input class="form-control" id="perimeter"
                                            placeholder="Warm or Cold"
                                                type="text" th:field="*{rentalCost}">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="p-2" for="Message">Your message </label>
+                                <label class="p-2" for="Message">Your Message (Optional)</label>
                                 <input class="form-control contact-message mb-3" id="addMessage" placeholder="Enter message"
                                        type="text">
                             </div>
@@ -170,7 +177,6 @@
     <!-- Initialize all Controllers needed for frontend -->
     <script th:inline="javascript">
         /*<![CDATA[*/
-        var jsonProperties = /*[[${jsonProperties}]]*/ '[]';
         var jsonPropertiesGC = /*[[${jsonPropertiesGC}]]*/ '[]';
         var jsonPropertiesDS = /*[[${jsonPropertiesDS}]]*/ '[]';
         /*]]>*/
@@ -230,24 +236,24 @@
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            <label class="p-2" for="firstName">First name*</label>
+                                            <label class="p-2 required" for="firstName" data-toggle="tooltip" title="First name is required">First name</label>
                                             <input class="form-control" id="firstName1" placeholder="First name"
                                                    type="text">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label class="p-2" for="lastName">Last name*</label>
+                                            <label class="p-2 required" for="lastName" data-toggle="tooltip" title="Last name is required">Last name</label>
                                             <input class="form-control" id="lastName1" placeholder="Last name"
                                                    type="text">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-8">
-                                            <label class="p-2" for="Email">Email*</label>
+                                            <label class="p-2 required" for="Email" data-toggle="tooltip" title="Email is required">Email</label>
                                             <input class="form-control" id="email1" placeholder="email@example.com"
                                                    type="email" name="buyerEmail" required>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label class="p-2" for="Message">Property ID</label>
+                                            <label class="p-2 required" for="Message" data-toggle="tooltip" title="Property ID is required">Property ID</label>
                                             <input class="form-control" id="ID1"
                                                    placeholder="Property ID"
                                                    type="text" name="propertyId" required>
@@ -255,7 +261,7 @@
                                     </div>
                                     <div class="row pb-4">
                                         <div class="form-group col-md-12">
-                                            <label class="p-2" for="Message">Your Message</label>
+                                            <label class="p-2" for="Message">Your Message (Optional)</label>
                                             <input class="form-control contact-message" id="message1"
                                                    placeholder="Your Message"
                                                    type="text">
@@ -287,23 +293,23 @@
                                 <h5 class="contact-title row justify-content-center py-3">Rent property</h5>
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label class="p-2" for="firstName">First name*</label>
+                                        <label class="p-2 required" for="firstName" data-toggle="tooltip" title="First name is required">First name</label>
                                         <input class="form-control" id="firstName" placeholder="First name" type="text">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="p-2" for="lastName">Last name*</label>
+                                        <label class="p-2 required" for="lastName" data-toggle="tooltip" title="Last name is required">Last name</label>
                                         <input class="form-control" id="lastName" placeholder="Last name"
                                                type="text">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-8">
-                                        <label class="p-2" for="Email">Email*</label>
+                                        <label class="p-2 required" for="Email" data-toggle="tooltip" title="Email is required">Email</label>
                                         <input class="form-control" id="email" placeholder="email@example.com"
                                                type="email" name="buyerEmail" required>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label class="p-2" for="Message">Property ID</label>
+                                        <label class="p-2 required" for="Message" data-toggle="tooltip" title="Property ID is required">Property ID</label>
                                         <input class="form-control" id="ID"
                                                placeholder="Property ID"
                                                type="text" name="propertyId" required>
