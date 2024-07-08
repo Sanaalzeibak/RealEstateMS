@@ -61,7 +61,7 @@ function generateCardHTML(property) {
         <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="contact-${property.id}" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered contact-apartment">
                 <div class="modal-content text-center d-flex align-items-center justify-content-center">
-                    <form action="@{/sellerPage}" method="post">
+                    <form action="" method="post">
                         <div class="mb-3 modal-header container d-flex justify-content-between">
                             <h5 class="modal-title contact-title col-11" id="log-in">Rent property</h5>
                             <!-- Close button -->
@@ -103,9 +103,6 @@ function generateCardHTML(property) {
             </div>
         </div>`;
 }
-
-
-
 
 function saveCardToLocalStorage(property) {
     try {
@@ -167,7 +164,7 @@ function updateCardStatusToRented(propertyId) {
 
 document.addEventListener('click', function (event) {
     if (event.target.matches('.rent-btn')) {
-        const propertyId = document.getElementById('ID').value || document.getElementById('ID1').value;
+        const propertyId = event.target.getAttribute('data-property-id') || document.getElementById('ID').value;
         updateCardStatusToRented(propertyId);
     }
 });
@@ -179,7 +176,7 @@ function clearLocalStorage() {
 }
 
 (function() {
-    clearLocalStorage(); // Clear local storage once
+    //clearLocalStorage(); // Clear local storage once
     syncLocalStorageWithProperties();
     renderCardsFromLocalStorage();
 })();
