@@ -98,14 +98,10 @@
                     const emailValue = emailInput.value;
                     const passwordValue = passwordInput.value;
 
-                    console.log(emailValue);
-                    console.log(passwordValue);
-                    console.log("Json parsed", users[46].email);
-                    console.log("Json parsed", users[46].password);
-
                     const userIndex = users.findIndex(user => user.email === emailValue);
 
                     if(userIndex !== -1 && users[userIndex].password === passwordValue) {
+                        localStorage.setItem("Email: ", emailValue);
                         window.location.href = users[userIndex].role + "Page";
                         emailValue.value = '';
                         passwordValue.value = '';

@@ -51,14 +51,61 @@ function generateCardHTML(property) {
                                 <p class="card-text">${property.rooms} Rooms</p>
                             </div>
                             <div class="col-md-3">
-                                <button class="contact-btn btn btn-outline-secondary rent-btn" data-property-id="${property.id}" type="button">Rent</button>
+                                <button class="contact-btn btn btn-outline-secondary rent-btn" data-bs-toggle="modal" data-bs-target="#contact-${property.id}" data-property-id="${property.id}" type="button">Rent</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="contact-${property.id}" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered contact-apartment">
+                <div class="modal-content text-center d-flex align-items-center justify-content-center">
+                    <form action="@{/sellerPage}" method="post">
+                        <div class="mb-3 modal-header container d-flex justify-content-between">
+                            <h5 class="modal-title contact-title col-11" id="log-in">Rent property</h5>
+                            <!-- Close button -->
+                            <button type="button" class="btn-close col-1" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="p-2 required" for="firstName" data-toggle="tooltip" title="First name is required">First name</label>
+                                    <input class="form-control" id="firstName-${property.id}" placeholder="First name" type="text">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="p-2 required" for="lastName" data-toggle="tooltip" title="Last name is required">Last name</label>
+                                    <input class="form-control" id="lastName-${property.id}" placeholder="Last name" type="text">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-8">
+                                    <label class="p-2 required" for="Email" data-toggle="tooltip" title="Email is required">Email</label>
+                                    <input class="form-control" id="email-${property.id}" placeholder="email@example.com" type="email" name="buyerEmail" required>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="p-2 required" for="Message" data-toggle="tooltip" title="Property ID is required">Property ID</label>
+                                    <input class="form-control" id="ID-${property.id}" placeholder="Property ID" type="text" name="propertyId" value="${property.id}" readonly required>
+                                </div>
+                            </div>
+                            <div class="row pb-4">
+                                <div class="form-group col-md-12">
+                                    <label class="p-2" for="Message">Your Message (Optional)</label>
+                                    <input class="form-control contact-message" id="message-${property.id}" placeholder="Your Message" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer container d-flex justify-content-center p-0">
+                            <button class="log-in btn btn-outline-secondary px-5 mb-3 rent-btn" type="submit">Rent</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>`;
 }
+
+
+
 
 function saveCardToLocalStorage(property) {
     try {
@@ -121,18 +168,30 @@ function updateCardStatusToRented(propertyId) {
 document.addEventListener('click', function (event) {
     if (event.target.matches('.rent-btn')) {
         const propertyId = event.target.getAttribute('data-property-id');
-        console.log(propertyId);
+        const firstName = document.getElementById(`firstName-${propertyId}`).value;
+        const lastName = document.getElementById(`lastName-${propertyId}`).value;
+        const email = document.getElementById(`email-${propertyId}`).value;
+        const message = document.getElementById(`message-${propertyId}`).value;
+
+        console.log(`Property ID: ${propertyId}`);
+        console.log(`First Name: ${firstName}`);
+        console.log(`Last Name: ${lastName}`);
+        console.log(`Email: ${email}`);
+        console.log(`Message: ${message}`);
+
+        // Optionally, update the card status to "Rented" or any other action
         updateCardStatusToRented(propertyId);
     }
 });
-/*
+
+
 function clearLocalStorage() {
     localStorage.clear();
     console.log('All local storage cleared.');
-} */
+}
 
 (function() {
-    //clearLocalStorage(); // Clear local storage once
+    clearLocalStorage(); // Clear local storage once
     syncLocalStorageWithProperties();
     renderCardsFromLocalStorage();
 })();
