@@ -191,7 +191,7 @@ function clearLocalStorage() {
 }
 
 (function() {
-    //clearLocalStorage(); // Clear local storage once
+    clearLocalStorage(); // Clear local storage once
     syncLocalStorageWithProperties();
     renderCardsFromLocalStorage();
 })();

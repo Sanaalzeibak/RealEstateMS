@@ -66,13 +66,13 @@ public class SellerPageController {
     public String addProperty(@ModelAttribute PropertyData propertyData, String ownerEmail, Model model) {
         try {
             //get user id from String ownerEmail and set it to property
-            /*Optional<Long> ownerIdOptional = userRepository.findIdByEmail(ownerEmail);
+            Optional<Long> ownerIdOptional = userRepository.findIdByEmail(ownerEmail);
             if (!ownerIdOptional.isPresent()) {
                 throw new IllegalArgumentException("Owner not found with email: " + ownerEmail);
             }
             long ownerId = ownerIdOptional.get();
             propertyData.setUserId(ownerId);  // assuming PropertyData has a setUserId method
-            */
+
             // Save property
             propertyData.setListingStatus("Active");
             propertyRepository.save(propertyData);
