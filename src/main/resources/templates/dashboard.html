@@ -101,7 +101,7 @@
                     const userIndex = users.findIndex(user => user.email === emailValue);
 
                     if(userIndex !== -1 && users[userIndex].password === passwordValue) {
-                        localStorage.setItem("Email: ", emailValue);
+                        localStorage.setItem("email", emailValue);
                         window.location.href = users[userIndex].role + "Page";
                         emailValue.value = '';
                         passwordValue.value = '';

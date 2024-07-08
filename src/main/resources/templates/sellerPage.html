@@ -162,9 +162,18 @@
                                 <input class="form-control contact-message mb-3" id="addMessage" placeholder="Enter message"
                                        type="text">
                             </div>
+                            <input type="hidden" id="hiddenEmailInput" name="ownerEmail">
                             <button id="addApartmentCard" type="submit" class="log-in btn btn-outline-secondary"
                                     data-bs-dismiss="modal">Add Property
                             </button>
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    const email = localStorage.getItem('email');
+                                    if (email) {
+                                        document.getElementById('hiddenEmailInput').value = email;
+                                    }
+                                });
+                            </script>
                         </form>
                     </div>
                 </div>
