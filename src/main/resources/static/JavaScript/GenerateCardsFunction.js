@@ -167,19 +167,7 @@ function updateCardStatusToRented(propertyId) {
 
 document.addEventListener('click', function (event) {
     if (event.target.matches('.rent-btn')) {
-        const propertyId = event.target.getAttribute('data-property-id');
-        const firstName = document.getElementById(`firstName-${propertyId}`).value;
-        const lastName = document.getElementById(`lastName-${propertyId}`).value;
-        const email = document.getElementById(`email-${propertyId}`).value;
-        const message = document.getElementById(`message-${propertyId}`).value;
-
-        console.log(`Property ID: ${propertyId}`);
-        console.log(`First Name: ${firstName}`);
-        console.log(`Last Name: ${lastName}`);
-        console.log(`Email: ${email}`);
-        console.log(`Message: ${message}`);
-
-        // Optionally, update the card status to "Rented" or any other action
+        const propertyId = document.getElementById('ID').value || document.getElementById('ID1').value;
         updateCardStatusToRented(propertyId);
     }
 });
