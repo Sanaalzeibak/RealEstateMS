@@ -51,7 +51,7 @@ public class SignInController {
             } else if ("Seller".equalsIgnoreCase(userData.getRole())) {
                 return "redirect:/sellerPage";  // Redirect to seller page
             } else {
-                return "success";  // Redirect to admin page
+                return "signIn";
             }
     } catch (IllegalArgumentException e) {
         model.addAttribute("error", e.getMessage());
