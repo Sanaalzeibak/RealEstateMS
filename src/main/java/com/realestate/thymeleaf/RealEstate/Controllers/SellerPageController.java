@@ -2,7 +2,6 @@ package com.realestate.thymeleaf.RealEstate.Controllers;
 
 import com.google.gson.Gson;
 import com.realestate.thymeleaf.RealEstate.Model.PropertyData;
-import com.realestate.thymeleaf.RealEstate.Model.UserData;
 import com.realestate.thymeleaf.RealEstate.Repository.PropertyRepository;
 import com.realestate.thymeleaf.RealEstate.Repository.UserRepository;
 import com.realestate.thymeleaf.RealEstate.Service.SoldPropertiesService;
@@ -20,7 +19,6 @@ import java.util.Optional;
 
 @Controller
 public class SellerPageController {
-
     private final PropertyRepository propertyRepository;
     private final UserRepository userRepository;
     private final SoldPropertiesService soldPropertiesService;

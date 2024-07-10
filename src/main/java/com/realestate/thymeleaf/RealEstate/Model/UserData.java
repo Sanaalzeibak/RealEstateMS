@@ -10,9 +10,6 @@ public class UserData {
  @GeneratedValue(strategy = GenerationType.IDENTITY)
  private Long id;
  private String firstName;
-
-
-
  private String lastName;
  private String email;
  private String phoneNumber;
@@ -20,8 +17,6 @@ public class UserData {
  private String role;
 
  // Constructor
-
-
  public UserData(Long id, String firstName, String lastName, String email, String phoneNumber, String password, String role) {
   this.id = id;
   this.firstName = firstName;

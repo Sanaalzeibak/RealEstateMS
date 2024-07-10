@@ -2,7 +2,6 @@ package com.realestate.thymeleaf.RealEstate.Model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "sold_properties")
@@ -17,8 +16,7 @@ public class SoldProperties {
         @Column(name = "buyer_id")
         private Long buyerId;
 
-
-    //Constructor
+        //Constructor
         public SoldProperties(Long propertyId, Long buyerId) {
             this.propertyId = propertyId;
             this.buyerId = buyerId;
@@ -27,7 +25,4 @@ public class SoldProperties {
         //Default Constructor
         public SoldProperties() {
         }
-
-
-
 }

@@ -1,6 +1,5 @@
 package com.realestate.thymeleaf.RealEstate.Model;
 
-
 import jakarta.persistence.*;
 
 
@@ -11,8 +10,6 @@ public class PropertyData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     // attributes of table properties
-
-
     private Long id;
 
     private String address;

@@ -1,6 +1,5 @@
 package com.realestate.thymeleaf.RealEstate.Controllers;
 
-
 import com.realestate.thymeleaf.RealEstate.Model.PropertyData;
 import com.google.gson.Gson;
 import com.realestate.thymeleaf.RealEstate.Repository.PropertyRepository;

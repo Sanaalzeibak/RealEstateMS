@@ -2,15 +2,12 @@ package com.realestate.thymeleaf.RealEstate.Service;
 
 import com.realestate.thymeleaf.RealEstate.Model.SoldProperties;
 import com.realestate.thymeleaf.RealEstate.Model.PropertyData;
-import com.realestate.thymeleaf.RealEstate.Model.UserData;
 import com.realestate.thymeleaf.RealEstate.Repository.SoldPropertiesRepository;
 import com.realestate.thymeleaf.RealEstate.Repository.PropertyRepository;
 import com.realestate.thymeleaf.RealEstate.Repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
