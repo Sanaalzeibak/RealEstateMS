@@ -117,7 +117,7 @@ function updateCardStatusToRented(propertyId) {
 
 document.addEventListener('click', function (event) {
     if (event.target.matches('.rent-btn')) {
-        const propertyId = event.target.getAttribute('data-property-id') || document.getElementById('ID').value;
+        const propertyId = document.getElementById('ID').value;
         updateCardStatusToRented(propertyId);
     }
 });
